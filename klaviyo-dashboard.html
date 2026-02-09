@@ -19,6 +19,7 @@
       --green: #22c55e;
       --red: #ef4444;
       --yellow: #eab308;
+      --blue: #3b82f6;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -68,6 +69,56 @@
     .last-updated {
       font-size: 0.75rem;
       color: var(--muted);
+    }
+
+    /* Goals Banner */
+    .goals-banner {
+      background: linear-gradient(135deg, rgba(61, 28, 177, 0.15), rgba(34, 197, 94, 0.1));
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .goal-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .goal-item .label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.25rem;
+    }
+
+    .goal-item .target {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .goal-item .current {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .goal-item .progress-bar {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .goal-item .progress-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 2px;
     }
 
     .metrics-grid {
@@ -228,8 +279,134 @@
       color: var(--green);
     }
 
-    .highlight {
-      color: var(--green);
+    .highlight { color: var(--green); }
+    .highlight-yellow { color: var(--yellow); }
+    .highlight-red { color: var(--red); }
+    .highlight-blue { color: var(--blue); }
+
+    /* Test Ideas Log */
+    .test-log {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .test-log-header {
+      background: linear-gradient(90deg, var(--accent), #6d28d9);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .test-log-header h2 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .test-category {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .test-category:last-child {
+      border-bottom: none;
+    }
+
+    .test-category-header {
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.02);
+      cursor: pointer;
+    }
+
+    .test-category-header h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .test-category-header .impact {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .impact.high { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+    .impact.medium { background: rgba(234, 179, 8, 0.15); color: var(--yellow); }
+
+    .test-list {
+      padding: 0 1.5rem 1rem;
+    }
+
+    .test-item {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      background: rgba(255,255,255,0.01);
+    }
+
+    .test-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .test-item h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .test-item h4 .priority {
+      font-size: 0.65rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      background: var(--accent);
+    }
+
+    .test-item p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .test-item .metrics {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .test-item .metric {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .test-item .metric strong {
+      color: var(--text);
+    }
+
+    .insight-callout {
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 3px solid var(--blue);
+      padding: 1rem;
+      margin: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .insight-callout p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .insight-callout strong {
+      color: var(--blue);
     }
 
     @media (max-width: 768px) {
@@ -237,6 +414,7 @@
       .charts-grid { grid-template-columns: 1fr; }
       header { flex-direction: column; gap: 1rem; align-items: flex-start; }
       .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .goals-banner { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -251,6 +429,31 @@
       <div class="last-updated">Last 365 Days · Updated: <span id="update-time">Loading...</span></div>
     </header>
 
+    <!-- 2026 Goals Banner -->
+    <div class="goals-banner">
+      <div class="goal-item">
+        <span class="label">2026 Goal: Campaign Click Rate</span>
+        <span class="target">+15% → 0.91%</span>
+        <span class="current">Current: 0.79%</span>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 87%"></div>
+        </div>
+      </div>
+      <div class="goal-item">
+        <span class="label">2026 Goal: Flow Revenue</span>
+        <span class="target">+15% → $1.04M</span>
+        <span class="current">Current: $906K</span>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 87%"></div>
+        </div>
+      </div>
+      <div class="goal-item">
+        <span class="label">Revenue Needed to Hit Goal</span>
+        <span class="target">+$136K</span>
+        <span class="current">From flow optimization</span>
+      </div>
+    </div>
+
     <!-- Summary Metrics -->
     <div class="metrics-grid" id="summary-metrics">
       <div class="metric-card">
@@ -264,24 +467,170 @@
         <div class="sub" id="revenue-sub">-</div>
       </div>
       <div class="metric-card">
+        <div class="label">Email Click Rate</div>
+        <div class="value highlight-yellow" id="avg-click-rate">-</div>
+        <div class="sub">Target: 0.91%</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Flow Revenue</div>
+        <div class="value" id="flow-revenue">-</div>
+        <div class="sub">Target: $1.04M</div>
+      </div>
+      <div class="metric-card">
         <div class="label">Avg Open Rate</div>
         <div class="value" id="avg-open-rate">-</div>
         <div class="sub">Email campaigns</div>
-      </div>
-      <div class="metric-card">
-        <div class="label">Avg Click Rate</div>
-        <div class="value" id="avg-click-rate">-</div>
-        <div class="sub">All channels</div>
       </div>
       <div class="metric-card">
         <div class="label">Total Conversions</div>
         <div class="value" id="total-conversions">-</div>
         <div class="sub" id="conversions-sub">-</div>
       </div>
-      <div class="metric-card">
-        <div class="label">Campaigns Sent</div>
-        <div class="value" id="campaigns-sent">-</div>
-        <div class="sub" id="campaigns-sub">-</div>
+    </div>
+
+    <!-- Test Ideas Log -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">🧪 Test Ideas Log</h2>
+      </div>
+      
+      <div class="test-log">
+        <div class="test-log-header">
+          <h2>Optimization Roadmap for +15% Goals</h2>
+          <span style="font-size: 0.75rem; opacity: 0.8;">Based on flow & campaign analysis</span>
+        </div>
+
+        <div class="insight-callout">
+          <p><strong>Key Insight:</strong> Your top flow generates $502K (55% of flow revenue) with 9.76% click rate. Meanwhile, 3 flows with 50K+ recipients have &lt;3% click rates despite 90%+ open rates. This "open-click gap" represents your biggest optimization opportunity.</p>
+        </div>
+
+        <!-- Flow Revenue Tests -->
+        <div class="test-category">
+          <div class="test-category-header">
+            <h3>📈 Flow Revenue Tests</h3>
+            <span class="impact high">High Impact · +$136K potential</span>
+          </div>
+          <div class="test-list">
+            <div class="test-item">
+              <h4><span class="priority">P1</span> Welcome Flow CTA Optimization</h4>
+              <p>Your main welcome flow has 85% opens but only 9.76% clicks. Test: larger/bolder CTA buttons, single focused CTA vs multiple, urgency copy ("Limited stock"), and product imagery in hero position.</p>
+              <div class="metrics">
+                <span class="metric">Current: <strong>9.76% click</strong></span>
+                <span class="metric">Target: <strong>11.2% click (+15%)</strong></span>
+                <span class="metric">Revenue at stake: <strong>$502K</strong></span>
+              </div>
+            </div>
+            <div class="test-item">
+              <h4><span class="priority">P1</span> High-Open/Low-Click Flow Redesign</h4>
+              <p>3 flows show 90%+ open rates but &lt;3% click rates - classic content disconnect. Recipients open but don't act. Test: above-fold product showcase, social proof (reviews), clearer value prop, mobile-first design.</p>
+              <div class="metrics">
+                <span class="metric">Flows affected: <strong>3</strong></span>
+                <span class="metric">Combined recipients: <strong>33K</strong></span>
+                <span class="metric">Combined revenue: <strong>$68K</strong></span>
+              </div>
+            </div>
+            <div class="test-item">
+              <h4><span class="priority">P2</span> Checkout Abandonment Urgency Sequence</h4>
+              <p>$26K from checkout abandonment at only 2% click. Test: countdown timers, "cart expiring" copy, showing exact items left behind with images, social proof ("X people viewing this").</p>
+              <div class="metrics">
+                <span class="metric">Current: <strong>2.06% click</strong></span>
+                <span class="metric">Revenue: <strong>$26K</strong></span>
+              </div>
+            </div>
+            <div class="test-item">
+              <h4><span class="priority">P2</span> Cart Abandonment SMS Follow-up</h4>
+              <p>SMS has 3.1% click vs 0.79% email. Add SMS touchpoint to cart abandonment flow 2-4 hours after email. Keep it personal: "Hey! Your Lunchbox pack is waiting 🎒"</p>
+              <div class="metrics">
+                <span class="metric">SMS avg click: <strong>3.1%</strong></span>
+                <span class="metric">Email avg click: <strong>0.79%</strong></span>
+              </div>
+            </div>
+            <div class="test-item">
+              <h4><span class="priority">P3</span> Review Request Monetization</h4>
+              <p>Junip Review Blast has 85% opens, $380 revenue - missed opportunity. Add product upsell/cross-sell after review submission. "Thanks for the review! Here's 10% off your next pack."</p>
+              <div class="metrics">
+                <span class="metric">Recipients: <strong>19.5K</strong></span>
+                <span class="metric">Current revenue: <strong>$380</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Campaign Click Tests -->
+        <div class="test-category">
+          <div class="test-category-header">
+            <h3>🎯 Campaign Click Rate Tests</h3>
+            <span class="impact high">High Impact · Target: 0.79% → 0.91%</span>
+          </div>
+          <div class="test-list">
+            <div class="test-item">
+              <h4><span class="priority">P1</span> Subject Line A/B Framework</h4>
+              <p>Top campaigns hit 5% click while average is 0.79%. Establish A/B testing protocol: Test curiosity gaps ("The one thing festival-goers forget..."), personalization, emoji vs no emoji, length variations.</p>
+              <div class="metrics">
+                <span class="metric">Best performers: <strong>4-5% click</strong></span>
+                <span class="metric">Average: <strong>0.79%</strong></span>
+                <span class="metric">Gap: <strong>5x difference</strong></span>
+              </div>
+            </div>
+            <div class="test-item">
+              <h4><span class="priority">P1</span> High-Volume Campaign Redesign</h4>
+              <p>5 campaigns with 100K+ recipients have &lt;0.5% click - that's millions of impressions underperforming. Audit these for: template issues, dead links, unclear CTAs, irrelevant content for segment.</p>
+              <div class="metrics">
+                <span class="metric">Recipients affected: <strong>600K+</strong></span>
+                <span class="metric">Current click: <strong>0.25-0.44%</strong></span>
+              </div>
+            </div>
+            <div class="test-item">
+              <h4><span class="priority">P2</span> Segmentation by Engagement</h4>
+              <p>Stop sending to non-engagers - they tank your metrics. Create segments: Hot (opened last 30d), Warm (30-90d), Cold (90d+). Tailor content and frequency by segment.</p>
+              <div class="metrics">
+                <span class="metric">Expected lift: <strong>+20-30% click rate</strong></span>
+                <span class="metric">Deliverability boost: <strong>Yes</strong></span>
+              </div>
+            </div>
+            <div class="test-item">
+              <h4><span class="priority">P2</span> SMS Campaign Expansion</h4>
+              <p>SMS campaigns average 3.1% click (4x email). Currently 45 SMS vs 123 email campaigns. Opportunity: add SMS versions of top-performing email campaigns.</p>
+              <div class="metrics">
+                <span class="metric">SMS click rate: <strong>3.1%</strong></span>
+                <span class="metric">Email click rate: <strong>0.79%</strong></span>
+              </div>
+            </div>
+            <div class="test-item">
+              <h4><span class="priority">P3</span> Interactive Content Test</h4>
+              <p>Test interactive elements: polls, quizzes ("Which pack matches your festival style?"), countdown timers for sales. These typically boost engagement 2-3x.</p>
+              <div class="metrics">
+                <span class="metric">Industry benchmark: <strong>2-3x click lift</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Wins -->
+        <div class="test-category">
+          <div class="test-category-header">
+            <h3>⚡ Quick Wins (This Week)</h3>
+            <span class="impact medium">Medium Impact · Fast to implement</span>
+          </div>
+          <div class="test-list">
+            <div class="test-item">
+              <h4>Activate Draft Flows</h4>
+              <p>You have 24 flows in "draft" status including legacy welcome series and cart abandonment. Audit and either delete or activate - dead flows = missed revenue.</p>
+            </div>
+            <div class="test-item">
+              <h4>Add UTM Tracking to All CTAs</h4>
+              <p>Ensure every link has proper UTMs for accurate attribution. Format: utm_source=klaviyo&utm_medium=email&utm_campaign=[flow_name]</p>
+            </div>
+            <div class="test-item">
+              <h4>Mobile Preview Audit</h4>
+              <p>Check top 5 revenue flows on mobile. If CTAs are below the fold or images are broken, you're losing clicks. 60%+ of opens are mobile.</p>
+            </div>
+            <div class="test-item">
+              <h4>Sunset Unengaged Profiles</h4>
+              <p>Profiles with no opens in 180+ days hurt deliverability. Move them to a re-engagement flow or suppress from regular sends.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -370,7 +719,7 @@
     // Format helpers
     const formatCurrency = (num) => '$' + Math.round(num).toLocaleString('en-US');
     const formatNumber = (num) => Math.round(num).toLocaleString('en-US');
-    const formatPercent = (num) => (num * 100).toFixed(1) + '%';
+    const formatPercent = (num) => (num * 100).toFixed(2) + '%';
 
     // Load data from JSON files
     async function loadData() {
@@ -473,19 +822,17 @@
 
         // Summary metrics
         document.getElementById('total-recipients').textContent = formatNumber(campaignAgg.all.recipients);
-        document.getElementById('recipients-sub').textContent = `${formatNumber(campaignAgg.email.count)} email + ${formatNumber(campaignAgg.sms.count)} SMS campaigns`;
+        document.getElementById('recipients-sub').textContent = `${formatNumber(campaignAgg.email.count)} email + ${formatNumber(campaignAgg.sms.count)} SMS`;
         
         document.getElementById('total-revenue').textContent = formatCurrency(campaignAgg.all.conversion_value + flowTotalRevenue);
         document.getElementById('revenue-sub').textContent = `Campaigns: ${formatCurrency(campaignAgg.all.conversion_value)} · Flows: ${formatCurrency(flowTotalRevenue)}`;
         
+        document.getElementById('avg-click-rate').textContent = formatPercent(campaignAgg.email.click_rate);
         document.getElementById('avg-open-rate').textContent = formatPercent(campaignAgg.email.open_rate);
-        document.getElementById('avg-click-rate').textContent = formatPercent(campaignAgg.all.click_rate);
+        document.getElementById('flow-revenue').textContent = formatCurrency(flowTotalRevenue);
         
         document.getElementById('total-conversions').textContent = formatNumber(campaignAgg.all.conversions + flowTotalConversions);
         document.getElementById('conversions-sub').textContent = `Campaigns: ${formatNumber(campaignAgg.all.conversions)} · Flows: ${formatNumber(flowTotalConversions)}`;
-        
-        document.getElementById('campaigns-sent').textContent = formatNumber(campaignAgg.all.count);
-        document.getElementById('campaigns-sub').textContent = `${formatNumber(campaignAgg.email.count)} email · ${formatNumber(campaignAgg.sms.count)} SMS`;
 
         // Charts
         const chartColors = {
@@ -524,7 +871,7 @@
         new Chart(document.getElementById('engagement-chart'), {
           type: 'bar',
           data: {
-            labels: ['Email Campaigns', 'SMS Campaigns', 'Flows (Email)'],
+            labels: ['Email Campaigns', 'SMS Campaigns', 'Flows (Avg)'],
             datasets: [
               {
                 label: 'Open Rate',
