@@ -18,14 +18,14 @@
     }
 
     .hero {
-      min-height: 50vh;
+      min-height: 45vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 4rem 2rem;
-      background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+      background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
     }
 
     .hero h1 {
@@ -41,12 +41,152 @@
       max-width: 600px;
     }
 
+    /* Product Hero Sections */
+    .product-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 70vh;
+      overflow: hidden;
+    }
+
+    .product-hero.reverse { direction: rtl; }
+    .product-hero.reverse > * { direction: ltr; }
+
+    .product-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem;
+    }
+
+    .product-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      opacity: 0.7;
+    }
+
+    .product-content h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .product-content .tagline {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .features li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .features li::before {
+      content: "✓";
+      font-weight: bold;
+      opacity: 0.6;
+    }
+
+    .product-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .product-cta svg {
+      transition: transform 0.3s ease;
+    }
+
+    .product-cta:hover svg {
+      transform: translateX(4px);
+    }
+
+    .product-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .product-image img {
+      max-width: 100%;
+      max-height: 500px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+    }
+
+    /* Unplugs - Green gradient */
+    .unplugs-section {
+      background: linear-gradient(135deg, #0a1a0f 0%, #0d2818 50%, #0a0a0a 100%);
+    }
+    .unplugs-section .product-badge { color: #29EF78; }
+    .unplugs-section .features li::before { color: #29EF78; }
+    .unplugs-section .product-cta {
+      background: linear-gradient(135deg, #29EF78, #1db954);
+      color: #000;
+    }
+    .unplugs-section .product-cta:hover {
+      box-shadow: 0 8px 30px rgba(41, 239, 120, 0.3);
+    }
+
+    /* Lunchbox - Purple gradient */
+    .lunchbox-section {
+      background: linear-gradient(135deg, #15102a 0%, #1a1235 50%, #0a0a0a 100%);
+    }
+    .lunchbox-section .product-badge { color: #A1A1F1; }
+    .lunchbox-section .features li::before { color: #A1A1F1; }
+    .lunchbox-section .product-cta {
+      background: linear-gradient(135deg, #3D1CB1, #6B4CE6);
+      color: #fff;
+    }
+    .lunchbox-section .product-cta:hover {
+      box-shadow: 0 8px 30px rgba(61, 28, 177, 0.4);
+    }
+
+    /* Other Projects */
     .projects {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
+    }
+
+    .projects-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .projects-header h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .projects-header p {
+      color: #666;
+    }
+
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
 
@@ -78,7 +218,7 @@
       margin-bottom: 1.5rem;
     }
 
-    .project h2 {
+    .project h3 {
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 0.75rem;
@@ -98,9 +238,10 @@
       gap: 0.5rem;
     }
 
-    .project:hover .project-link {
-      color: #fff;
-    }
+    .project:hover .project-link { color: #fff; }
+
+    .reading .project-icon { background: linear-gradient(135deg, #f093fb, #f5576c); }
+    .advisory .project-icon { background: linear-gradient(135deg, #667eea, #764ba2); }
 
     .advised {
       font-size: 0.75rem;
@@ -110,40 +251,34 @@
       border-top: 1px solid #222;
     }
 
-    .advised a {
-      color: #666;
-      text-decoration: none;
-    }
-
-    .advised a:hover {
-      color: #fff;
-    }
-
-    /* Project-specific colors */
-    .unplugs .project-icon { background: linear-gradient(135deg, #FF6B35, #F7931E); }
-    .lunchbox .project-icon { background: linear-gradient(135deg, #00D4AA, #00B894); }
-    .advisory .project-icon { background: linear-gradient(135deg, #667eea, #764ba2); }
-    .cultural .project-icon { background: linear-gradient(135deg, #f093fb, #f5576c); }
+    .advised a { color: #666; text-decoration: none; }
+    .advised a:hover { color: #fff; }
 
     footer {
       text-align: center;
       padding: 4rem 2rem;
       color: #444;
       font-size: 0.875rem;
+      border-top: 1px solid #1a1a1a;
     }
 
-    footer a {
-      color: #666;
-      text-decoration: none;
-    }
+    footer a { color: #666; text-decoration: none; }
+    footer a:hover { color: #fff; }
 
-    footer a:hover {
-      color: #fff;
+    @media (max-width: 900px) {
+      .product-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .product-hero.reverse { direction: ltr; }
+      .product-content { padding: 3rem 2rem; order: 2; }
+      .product-image { padding: 2rem; order: 1; min-height: 300px; }
+      .product-image img { max-height: 300px; }
     }
 
     @media (max-width: 600px) {
-      .projects { padding: 2rem 1rem; }
-      .project { padding: 1.5rem; }
+      .product-content { padding: 2rem 1.5rem; }
+      .projects { padding: 4rem 1rem; }
     }
   </style>
 </head>
@@ -153,57 +288,88 @@
     <p>Founder, investor, and cultural builder. Creating products and experiences that protect, connect, and elevate.</p>
   </section>
 
-  <section class="projects">
-    <a href="https://www.unplugshearing.com" target="_blank" class="project unplugs">
-      <div class="project-icon">🔇</div>
+  <!-- Unplugs Hero -->
+  <section class="product-hero unplugs-section">
+    <div class="product-content">
+      <div class="product-badge">Founder & CEO</div>
       <h2>Unplugs Hearing</h2>
-      <p>Mechanical, button-based earplugs that make hearing protection cool, social, and empowering. Tap to connect, tap to protect.</p>
-      <span class="project-link">
-        unplugshearing.com
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <p class="tagline">Not earplugs. Unplugs. Mechanical hearing protection with transparency mode.</p>
+      <ul class="features">
+        <li>Instant switch between protection and connection</li>
+        <li>Audiologist-designed for optimal sound quality</li>
+        <li>No batteries, no apps — pure mechanical control</li>
+        <li>Tap to connect, tap to protect</li>
+      </ul>
+      <a href="https://unplugshearing.com" target="_blank" class="product-cta">
+        Shop Unplugs
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M7 17L17 7M17 7H7M17 7V17"/>
         </svg>
-      </span>
-    </a>
+      </a>
+    </div>
+    <div class="product-image">
+      <img src="https://unplugshearing.com/cdn/shop/files/Black_open.png?v=1754417009" alt="Unplugs mechanical earplugs">
+    </div>
+  </section>
 
-    <a href="https://www.lunchboxpacks.com" target="_blank" class="project lunchbox">
-      <div class="project-icon">🎒</div>
+  <!-- Lunchbox Hero -->
+  <section class="product-hero lunchbox-section reverse">
+    <div class="product-content">
+      <div class="product-badge">Founder & CEO</div>
       <h2>Lunchbox Packs</h2>
-      <p>Festival hydration and anti-theft packs built for live music lovers. Trusted by fans at events worldwide.</p>
-      <span class="project-link">
-        lunchboxpacks.com
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <p class="tagline">Anti-theft hydration packs built for live music lovers.</p>
+      <ul class="features">
+        <li>Anti-theft zipper clips & hidden phone pocket</li>
+        <li>2L hydration bladder with easy-refill system</li>
+        <li>Cut-resistant vegan PU leather</li>
+        <li>Festival security approved worldwide</li>
+      </ul>
+      <a href="https://www.lunchboxpacks.com" target="_blank" class="product-cta">
+        Shop Lunchbox
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M7 17L17 7M17 7H7M17 7V17"/>
         </svg>
-      </span>
-    </a>
+      </a>
+    </div>
+    <div class="product-image">
+      <img src="https://www.lunchboxpacks.com/cdn/shop/files/HydrationPack_White_Front_ba45774f-c82f-40e7-bdf8-e1c2e5390b8a.png?v=1746596023" alt="Lunchbox Hydration Pack">
+    </div>
+  </section>
 
-    <a href="https://www.readingrhythms.co" target="_blank" class="project cultural">
-      <div class="project-icon">📚</div>
-      <h2>Reading Rhythms</h2>
-      <p>Community reading experiences set to music. Silent book clubs creating space for presence, connection, and deep focus.</p>
-      <span class="project-link">
-        readingrhythms.co
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M7 17L17 7M17 7H7M17 7V17"/>
-        </svg>
-      </span>
-    </a>
+  <!-- Other Projects -->
+  <section class="projects">
+    <div class="projects-header">
+      <h2>Other Work</h2>
+      <p>Cultural projects and advisory</p>
+    </div>
+    <div class="projects-grid">
+      <a href="https://www.readingrhythms.co" target="_blank" class="project reading">
+        <div class="project-icon">📚</div>
+        <h3>Reading Rhythms</h3>
+        <p>Community reading experiences set to music. Silent book clubs creating space for presence, connection, and deep focus.</p>
+        <span class="project-link">
+          readingrhythms.co
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </span>
+      </a>
 
-    <a href="mailto:tom@lunchboxpacks.com" class="project advisory">
-      <div class="project-icon">💡</div>
-      <h2>Advisory</h2>
-      <p>Strategic guidance for founders building consumer products, live experiences, and fan-centric brands.</p>
-      <span class="project-link">
-        Get in touch
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M7 17L17 7M17 7H7M17 7V17"/>
-        </svg>
-      </span>
-      <div class="advised">
-        Previously advised: <a href="https://northbeam.io" target="_blank">Northbeam</a>
-      </div>
-    </a>
+      <a href="mailto:tom@lunchboxpacks.com" class="project advisory">
+        <div class="project-icon">💡</div>
+        <h3>Advisory</h3>
+        <p>Strategic guidance for founders building consumer products, live experiences, and fan-centric brands.</p>
+        <span class="project-link">
+          Get in touch
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </span>
+        <div class="advised">
+          Previously advised: <a href="https://northbeam.io" target="_blank">Northbeam</a>
+        </div>
+      </a>
+    </div>
   </section>
 
   <footer>
