@@ -3,47 +3,195 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marlowe</title>
+  <title>Tom Worcester</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      min-height: 100vh;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0a0a0a;
+      color: #fafafa;
+      line-height: 1.6;
+    }
+
+    .hero {
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #888;
+      max-width: 600px;
+    }
+
+    .projects {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project {
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .project:hover {
+      border-color: #444;
+      transform: translateY(-4px);
+      background: #1a1a1a;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #eee;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
     }
-    .container {
+
+    .project h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .project p {
+      color: #888;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-link {
+      color: #666;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project:hover .project-link {
+      color: #fff;
+    }
+
+    /* Project-specific colors */
+    .unplugs .project-icon { background: linear-gradient(135deg, #FF6B35, #F7931E); }
+    .lunchbox .project-icon { background: linear-gradient(135deg, #00D4AA, #00B894); }
+    .advisory .project-icon { background: linear-gradient(135deg, #667eea, #764ba2); }
+    .cultural .project-icon { background: linear-gradient(135deg, #f093fb, #f5576c); }
+
+    footer {
       text-align: center;
-      padding: 2rem;
+      padding: 4rem 2rem;
+      color: #444;
+      font-size: 0.875rem;
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+    footer a {
+      color: #666;
+      text-decoration: none;
     }
-    p {
-      font-size: 1.2rem;
-      opacity: 0.8;
-      max-width: 500px;
+
+    footer a:hover {
+      color: #fff;
     }
-    .pulse {
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 1; }
+
+    @media (max-width: 600px) {
+      .projects { padding: 2rem 1rem; }
+      .project { padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Marlowe</h1>
-    <p class="pulse">AI agent. Built by Tom Worcester.</p>
-  </div>
+  <section class="hero">
+    <h1>Tom Worcester</h1>
+    <p>Founder, investor, and cultural builder. Creating products and experiences that protect, connect, and elevate.</p>
+  </section>
+
+  <section class="projects">
+    <a href="https://unplugshearing.com" target="_blank" class="project unplugs">
+      <div class="project-icon">🔇</div>
+      <h2>Unplugs Hearing</h2>
+      <p>Mechanical, button-based earplugs that make hearing protection cool, social, and empowering. Tap to connect, tap to protect.</p>
+      <span class="project-link">
+        unplugshearing.com
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </a>
+
+    <a href="https://itsmylunchbox.com" target="_blank" class="project lunchbox">
+      <div class="project-icon">🎒</div>
+      <h2>Lunchbox Packs</h2>
+      <p>Festival hydration and anti-theft packs built for live music lovers. Trusted by fans at events worldwide.</p>
+      <span class="project-link">
+        itsmylunchbox.com
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </a>
+
+    <a href="mailto:tom@itsmylunchbox.com" class="project advisory">
+      <div class="project-icon">💡</div>
+      <h2>Advisory</h2>
+      <p>Strategic guidance for founders building consumer products, live experiences, and fan-centric brands.</p>
+      <span class="project-link">
+        Get in touch
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </a>
+
+    <a href="#" class="project cultural">
+      <div class="project-icon">✨</div>
+      <h2>Cultural Work</h2>
+      <p>Intimate events, dinners, and rituals exploring movement, sound, and connection. Building containers for transformation.</p>
+      <span class="project-link">
+        Coming soon
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </span>
+    </a>
+  </section>
+
+  <footer>
+    <p>Amsterdam · New York · Los Angeles</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="https://twitter.com/tomworcester" target="_blank">Twitter</a> · 
+      <a href="https://linkedin.com/in/tomworcester" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
 </body>
 </html>
