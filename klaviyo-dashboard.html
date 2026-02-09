@@ -21,138 +21,54 @@
       --yellow: #eab308;
       --blue: #3b82f6;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    .logo { display: flex; align-items: center; gap: 1rem; }
     .logo h1 { font-size: 1.5rem; font-weight: 700; }
     .logo span { background: var(--accent); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
     .last-updated { font-size: 0.75rem; color: var(--muted); }
-
-    .goals-banner {
-      background: linear-gradient(135deg, rgba(61, 28, 177, 0.15), rgba(34, 197, 94, 0.1));
-      border: 1px solid var(--accent);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
+    .goals-banner { background: linear-gradient(135deg, rgba(61, 28, 177, 0.15), rgba(34, 197, 94, 0.1)); border: 1px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
     .goal-item { display: flex; flex-direction: column; }
     .goal-item .label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
     .goal-item .target { font-size: 1.5rem; font-weight: 700; color: var(--green); }
     .goal-item .current { font-size: 0.875rem; color: var(--muted); }
-
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .metric-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem;
-    }
-
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .metric-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
     .metric-card .label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
-    .metric-card .value { font-size: 1.75rem; font-weight: 700; }
-    .metric-card .sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
-
+    .metric-card .value { font-size: 1.5rem; font-weight: 700; }
+    .metric-card .sub { font-size: 0.7rem; color: var(--muted); margin-top: 0.25rem; }
     .section { margin-bottom: 2rem; }
     .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
     .section-title { font-size: 1.25rem; font-weight: 600; }
-
-    .charts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .chart-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-
+    .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
     .chart-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
-    .chart-container { position: relative; height: 220px; }
-
-    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-    th, td { text-align: left; padding: 0.875rem; border-bottom: 1px solid var(--border); }
-    th { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+    .chart-container { position: relative; height: 200px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+    th, td { text-align: left; padding: 0.75rem; border-bottom: 1px solid var(--border); }
+    th { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
     tr:hover { background: rgba(255,255,255,0.02); }
-
-    .status { display: inline-flex; padding: 0.2rem 0.5rem; border-radius: 999px; font-size: 0.65rem; font-weight: 500; text-transform: uppercase; }
+    .status { display: inline-flex; padding: 0.15rem 0.4rem; border-radius: 999px; font-size: 0.6rem; font-weight: 500; text-transform: uppercase; }
     .status.live { background: rgba(34, 197, 94, 0.15); color: var(--green); }
-    .status.draft { background: rgba(234, 179, 8, 0.15); color: var(--yellow); }
-
     .back-link { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
     .back-link:hover { color: var(--text); }
-
-    .channel { display: inline-block; padding: 0.125rem 0.4rem; border-radius: 3px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; }
-    .channel.email { background: rgba(61, 28, 177, 0.2); color: #8b5cf6; }
-    .channel.sms { background: rgba(34, 197, 94, 0.2); color: var(--green); }
-
+    .channel { font-size: 0.9rem; }
     .highlight { color: var(--green); }
     .highlight-yellow { color: var(--yellow); }
     .highlight-red { color: var(--red); }
-
-    .opportunity-card {
-      background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(239, 68, 68, 0.05));
-      border: 1px solid var(--yellow);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .opportunity-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--yellow); }
-    .opportunity-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
-    .opportunity-card .stats { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .opportunity-card .stat { font-size: 0.8rem; }
-    .opportunity-card .stat strong { color: var(--text); }
-
-    .msg-breakdown { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
-    .msg-item { display: inline-block; margin-right: 0.75rem; }
-
+    .msg-breakdown { font-size: 0.7rem; color: var(--muted); }
+    .msg-item { display: inline-block; margin-right: 0.5rem; }
+    .yoy-table { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 2rem; }
+    .yoy-header { background: linear-gradient(90deg, var(--blue), #6366f1); padding: 1rem 1.5rem; }
+    .yoy-header h3 { font-size: 1rem; font-weight: 600; }
+    .yoy-up { color: var(--green); }
+    .yoy-down { color: var(--red); }
+    .yoy-new { color: var(--blue); font-style: italic; }
     .opp-table { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 2rem; }
-    .opp-table-header { background: linear-gradient(90deg, var(--yellow), #f59e0b); padding: 1rem 1.5rem; }
-    .opp-table-header h3 { font-size: 1rem; font-weight: 600; color: #000; }
-
+    .opp-header { background: linear-gradient(90deg, var(--yellow), #f59e0b); padding: 1rem 1.5rem; }
+    .opp-header h3 { font-size: 1rem; font-weight: 600; color: #000; }
     @media (max-width: 768px) {
       .container { padding: 1rem; }
       .charts-grid { grid-template-columns: 1fr; }
@@ -170,7 +86,7 @@
         <h1>Lunchbox Klaviyo</h1>
         <span>Dashboard</span>
       </div>
-      <div class="last-updated">Last 365 Days · Updated: <span id="update-time">Loading...</span></div>
+      <div class="last-updated">Live Flows Only · Updated: <span id="update-time">Loading...</span></div>
     </header>
 
     <div class="goals-banner">
@@ -181,13 +97,13 @@
       </div>
       <div class="goal-item">
         <span class="label">2026 Goal: Flow Revenue</span>
-        <span class="target">+15% → $1.04M</span>
-        <span class="current">Current: $906K</span>
+        <span class="target">+15% → $942K</span>
+        <span class="current">Current: $819K (2025)</span>
       </div>
       <div class="goal-item">
-        <span class="label">Revenue Gap to Goal</span>
-        <span class="target">+$136K needed</span>
-        <span class="current">From flow optimization</span>
+        <span class="label">2025 vs 2024 Growth</span>
+        <span class="target">+472%</span>
+        <span class="current">$143K → $819K</span>
       </div>
     </div>
 
@@ -208,9 +124,9 @@
         <div class="sub">Target: 0.91%</div>
       </div>
       <div class="metric-card">
-        <div class="label">Flow Revenue</div>
+        <div class="label">Flow Revenue (Live)</div>
         <div class="value" id="flow-revenue">-</div>
-        <div class="sub">Target: $1.04M</div>
+        <div class="sub">2025: $819K</div>
       </div>
       <div class="metric-card">
         <div class="label">Avg Open Rate</div>
@@ -224,20 +140,42 @@
       </div>
     </div>
 
-    <!-- Opportunities Table -->
+    <!-- Year over Year Comparison -->
+    <div class="section">
+      <div class="yoy-table">
+        <div class="yoy-header">
+          <h3>📊 Year-over-Year Flow Performance (Live Flows Only)</h3>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Flow Type</th>
+              <th>2024 Revenue</th>
+              <th>2024 Clicks</th>
+              <th>2025 Revenue</th>
+              <th>2025 Clicks</th>
+              <th>YoY Change</th>
+            </tr>
+          </thead>
+          <tbody id="yoy-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Opportunities -->
     <div class="section">
       <div class="opp-table">
-        <div class="opp-table-header">
-          <h3>🎯 Flow Optimization Opportunities</h3>
+        <div class="opp-header">
+          <h3>🎯 Flow Optimization Opportunities (Live Flows)</h3>
         </div>
         <table>
           <thead>
             <tr>
               <th>Flow</th>
               <th>Issue</th>
-              <th>Open Rate</th>
-              <th>Click Rate</th>
-              <th>Current Rev</th>
+              <th>Open</th>
+              <th>Click</th>
+              <th>Revenue</th>
               <th>Potential</th>
               <th>Action</th>
             </tr>
@@ -255,24 +193,23 @@
         </div>
       </div>
       <div class="chart-card">
-        <h3>Flows vs Campaigns Revenue</h3>
+        <h3>Flows vs Campaigns</h3>
         <div class="chart-container">
           <canvas id="source-chart"></canvas>
         </div>
       </div>
     </div>
 
-    <!-- Top Flows -->
+    <!-- Top Flows (Live Only) -->
     <div class="section">
       <div class="section-header">
-        <h2 class="section-title">Top Flows by Revenue</h2>
+        <h2 class="section-title">Top Live Flows by Revenue</h2>
       </div>
       <div class="chart-card">
         <table>
           <thead>
             <tr>
               <th>Flow Name</th>
-              <th>Status</th>
               <th>Recipients</th>
               <th>Open</th>
               <th>Click</th>
@@ -313,22 +250,23 @@
     const formatCurrency = (num) => '$' + Math.round(num).toLocaleString('en-US');
     const formatNumber = (num) => Math.round(num).toLocaleString('en-US');
     const formatPercent = (num) => (num * 100).toFixed(2) + '%';
-    const formatPctShort = (num) => (num * 100).toFixed(1) + '%';
+    const formatPct = (num) => (num * 100).toFixed(1) + '%';
 
     async function loadData() {
-      const [campaignsRes, flowsRes, flowNamesRes, campaignsMetaRes, lastUpdatedRes] = await Promise.all([
+      const [campaignsRes, flowsRes, flowNamesRes, campaignsMetaRes, yoyRes, lastUpdatedRes] = await Promise.all([
         fetch('data/campaigns.json'),
         fetch('data/flows.json'),
         fetch('data/flow-names.json'),
         fetch('data/campaigns-meta.json'),
+        fetch('data/yoy-comparison.json'),
         fetch('data/last-updated.txt')
       ]);
-
       return {
         campaigns: (await campaignsRes.json()).data?.attributes?.results || [],
         flows: (await flowsRes.json()).data?.attributes?.results || [],
         flowNames: await flowNamesRes.json(),
         campaignsMeta: (await campaignsMetaRes.json()).data || [],
+        yoy: await yoyRes.json(),
         lastUpdated: (await lastUpdatedRes.text()).trim()
       };
     }
@@ -336,7 +274,6 @@
     function aggregateCampaigns(data) {
       const email = data.filter(d => d.groupings.send_channel === 'email');
       const sms = data.filter(d => d.groupings.send_channel === 'sms');
-      
       const agg = (items) => {
         const t = { recipients: 0, opens: 0, clicks: 0, conversions: 0, revenue: 0, count: items.length };
         items.forEach(i => {
@@ -350,29 +287,25 @@
         t.click_rate = t.recipients > 0 ? t.clicks / t.recipients : 0;
         return t;
       };
-      
       return { email: agg(email), sms: agg(sms), all: agg(data) };
     }
 
-    function aggregateFlows(data, names) {
+    function aggregateFlows(data, names, liveOnly = true) {
       const flows = {};
-      
       data.forEach(item => {
         const fid = item['groupings']['flow_id'];
         const mid = item['groupings']['flow_message_id'];
+        const info = names[fid] || { name: fid, status: 'unknown' };
+        
+        // Skip draft flows if liveOnly
+        if (liveOnly && info.status === 'draft') return;
         
         if (!flows[fid]) {
-          const info = names[fid] || { name: fid, status: 'unknown' };
           flows[fid] = {
-            id: fid,
-            name: info.name,
-            status: info.status,
-            messages: [],
+            id: fid, name: info.name, status: info.status, messages: [],
             totals: { recipients: 0, opens: 0, clicks: 0, revenue: 0, conversions: 0 }
           };
         }
-        
-        // Track message
         flows[fid].messages.push({
           id: mid,
           recipients: item.statistics.recipients || 0,
@@ -380,8 +313,6 @@
           click_rate: item.statistics.click_rate || 0,
           revenue: item.statistics.conversion_value || 0
         });
-        
-        // Totals
         const t = flows[fid].totals;
         t.recipients += item.statistics.recipients || 0;
         t.opens += item.statistics.opens || 0;
@@ -389,49 +320,37 @@
         t.revenue += item.statistics.conversion_value || 0;
         t.conversions += item.statistics.conversions || 0;
       });
-      
-      // Calculate rates and sort messages
       Object.values(flows).forEach(f => {
         f.totals.open_rate = f.totals.recipients > 0 ? f.totals.opens / f.totals.recipients : 0;
         f.totals.click_rate = f.totals.recipients > 0 ? f.totals.clicks / f.totals.recipients : 0;
         f.messages.sort((a, b) => b.revenue - a.revenue);
       });
-      
       return Object.values(flows).sort((a, b) => b.totals.revenue - a.totals.revenue);
     }
 
     function findOpportunities(flows) {
-      const opps = [];
-      
-      flows.forEach(f => {
-        const t = f.totals;
-        if (t.recipients > 1000 && t.open_rate > 0.5 && t.click_rate < 0.04) {
-          opps.push({
-            name: f.name,
-            status: f.status,
-            open_rate: t.open_rate,
-            click_rate: t.click_rate,
-            revenue: t.revenue,
-            recipients: t.recipients,
-            gap: t.open_rate - t.click_rate,
-            potential: t.revenue > 0 ? t.revenue * 2 : t.recipients * 0.5,
-            issue: t.click_rate < 0.02 ? 'Very low clicks' : 'Low clicks',
-            action: t.click_rate < 0.02 ? 'Redesign CTAs' : 'A/B test CTAs'
-          });
-        }
-      });
-      
-      return opps.sort((a, b) => b.gap - a.gap).slice(0, 8);
+      return flows
+        .filter(f => f.totals.recipients > 1000 && f.totals.open_rate > 0.5 && f.totals.click_rate < 0.04)
+        .map(f => ({
+          name: f.name,
+          open_rate: f.totals.open_rate,
+          click_rate: f.totals.click_rate,
+          revenue: f.totals.revenue,
+          potential: f.totals.revenue > 0 ? f.totals.revenue * 2 : f.totals.recipients * 0.5,
+          issue: f.totals.click_rate < 0.02 ? 'Very low clicks' : 'Low clicks',
+          action: f.totals.click_rate < 0.02 ? 'Redesign CTAs' : 'A/B test CTAs'
+        }))
+        .sort((a, b) => b.potential - a.potential)
+        .slice(0, 8);
     }
 
     async function init() {
       try {
-        const { campaigns, flows, flowNames, campaignsMeta, lastUpdated } = await loadData();
-        
+        const { campaigns, flows, flowNames, campaignsMeta, yoy, lastUpdated } = await loadData();
         document.getElementById('update-time').textContent = new Date(lastUpdated).toLocaleString();
         
         const campAgg = aggregateCampaigns(campaigns);
-        const flowAgg = aggregateFlows(flows, flowNames);
+        const flowAgg = aggregateFlows(flows, flowNames, true); // Live only
         const flowTotal = flowAgg.reduce((sum, f) => sum + f.totals.revenue, 0);
         const flowConv = flowAgg.reduce((sum, f) => sum + f.totals.conversions, 0);
         
@@ -442,9 +361,58 @@
         document.getElementById('revenue-sub').textContent = `Camp: ${formatCurrency(campAgg.all.revenue)} · Flow: ${formatCurrency(flowTotal)}`;
         document.getElementById('avg-click-rate').textContent = formatPercent(campAgg.email.click_rate);
         document.getElementById('flow-revenue').textContent = formatCurrency(flowTotal);
-        document.getElementById('avg-open-rate').textContent = formatPctShort(campAgg.email.open_rate);
+        document.getElementById('avg-open-rate').textContent = formatPct(campAgg.email.open_rate);
         document.getElementById('total-conversions').textContent = formatNumber(campAgg.all.conversions + flowConv);
         document.getElementById('conversions-sub').textContent = `Camp: ${formatNumber(campAgg.all.conversions)} · Flow: ${formatNumber(flowConv)}`;
+        
+        // YoY Table
+        const yoyTbody = document.getElementById('yoy-tbody');
+        let total2024 = { revenue: 0, clicks: 0 };
+        let total2025 = { revenue: 0, clicks: 0 };
+        
+        Object.entries(yoy.by_type).forEach(([type, data]) => {
+          const d2024 = data['2024'] || { revenue: 0, clicks: 0 };
+          const d2025 = data['2025'] || { revenue: 0, clicks: 0 };
+          
+          total2024.revenue += d2024.revenue || 0;
+          total2024.clicks += d2024.clicks || 0;
+          total2025.revenue += d2025.revenue || 0;
+          total2025.clicks += d2025.clicks || 0;
+          
+          let yoyClass = 'yoy-new';
+          let yoyText = 'NEW';
+          if (d2024.revenue > 0) {
+            const change = ((d2025.revenue - d2024.revenue) / d2024.revenue) * 100;
+            yoyClass = change >= 0 ? 'yoy-up' : 'yoy-down';
+            yoyText = (change >= 0 ? '+' : '') + change.toFixed(0) + '%';
+          }
+          
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${type}</strong></td>
+            <td>${formatCurrency(d2024.revenue || 0)}</td>
+            <td>${formatNumber(d2024.clicks || 0)}</td>
+            <td>${formatCurrency(d2025.revenue || 0)}</td>
+            <td>${formatNumber(d2025.clicks || 0)}</td>
+            <td class="${yoyClass}">${yoyText}</td>
+          `;
+          yoyTbody.appendChild(tr);
+        });
+        
+        // Totals row
+        const totalYoyChange = ((total2025.revenue - total2024.revenue) / total2024.revenue) * 100;
+        const totalTr = document.createElement('tr');
+        totalTr.style.background = 'rgba(255,255,255,0.05)';
+        totalTr.style.fontWeight = '600';
+        totalTr.innerHTML = `
+          <td>TOTAL</td>
+          <td>${formatCurrency(total2024.revenue)}</td>
+          <td>${formatNumber(total2024.clicks)}</td>
+          <td class="highlight">${formatCurrency(total2025.revenue)}</td>
+          <td>${formatNumber(total2025.clicks)}</td>
+          <td class="yoy-up">+${totalYoyChange.toFixed(0)}%</td>
+        `;
+        yoyTbody.appendChild(totalTr);
         
         // Opportunities
         const opps = findOpportunities(flowAgg);
@@ -452,10 +420,10 @@
         opps.forEach(o => {
           const tr = document.createElement('tr');
           tr.innerHTML = `
-            <td><strong>${o.name}</strong><br><span class="status ${o.status}">${o.status}</span></td>
+            <td><strong>${o.name}</strong></td>
             <td style="color: var(--yellow)">${o.issue}</td>
-            <td>${formatPctShort(o.open_rate)}</td>
-            <td style="color: var(--red)">${formatPctShort(o.click_rate)}</td>
+            <td>${formatPct(o.open_rate)}</td>
+            <td style="color: var(--red)">${formatPct(o.click_rate)}</td>
             <td>${formatCurrency(o.revenue)}</td>
             <td class="highlight">${formatCurrency(o.potential)}</td>
             <td>${o.action}</td>
@@ -466,37 +434,29 @@
         // Charts
         new Chart(document.getElementById('revenue-chart'), {
           type: 'doughnut',
-          data: {
-            labels: ['Email', 'SMS'],
-            datasets: [{ data: [campAgg.email.revenue, campAgg.sms.revenue], backgroundColor: ['#3D1CB1', '#22c55e'], borderWidth: 0 }]
-          },
+          data: { labels: ['Email', 'SMS'], datasets: [{ data: [campAgg.email.revenue, campAgg.sms.revenue], backgroundColor: ['#3D1CB1', '#22c55e'], borderWidth: 0 }] },
           options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#a1a1aa' } } } }
         });
         
         new Chart(document.getElementById('source-chart'), {
           type: 'doughnut',
-          data: {
-            labels: ['Campaigns', 'Flows'],
-            datasets: [{ data: [campAgg.all.revenue, flowTotal], backgroundColor: ['#3b82f6', '#eab308'], borderWidth: 0 }]
-          },
+          data: { labels: ['Campaigns', 'Flows'], datasets: [{ data: [campAgg.all.revenue, flowTotal], backgroundColor: ['#3b82f6', '#eab308'], borderWidth: 0 }] },
           options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#a1a1aa' } } } }
         });
         
-        // Flows table
+        // Flows table (live only)
         const flowTbody = document.getElementById('flows-tbody');
         flowAgg.slice(0, 15).forEach(f => {
           const msgBreakdown = f.messages.slice(0, 4).map((m, i) => {
-            const label = f.name.split(' ')[0].replace('10M:', '').trim() || 'Email';
+            const label = f.name.split(' ')[0].replace('10M:', '').replace('Retention', 'Ret').trim() || 'Email';
             return `<span class="msg-item">${label} #${i+1}: ${formatCurrency(m.revenue)}</span>`;
           }).join('');
-          
           const tr = document.createElement('tr');
           tr.innerHTML = `
-            <td><strong>${f.name}</strong></td>
-            <td><span class="status ${f.status}">${f.status}</span></td>
+            <td><strong>${f.name}</strong> <span class="status live">live</span></td>
             <td>${formatNumber(f.totals.recipients)}</td>
-            <td>${formatPctShort(f.totals.open_rate)}</td>
-            <td>${formatPctShort(f.totals.click_rate)}</td>
+            <td>${formatPct(f.totals.open_rate)}</td>
+            <td>${formatPct(f.totals.click_rate)}</td>
             <td class="highlight">${formatCurrency(f.totals.revenue)}</td>
             <td><div class="msg-breakdown">${msgBreakdown}</div></td>
           `;
@@ -506,19 +466,17 @@
         // Campaigns table
         const campMeta = {};
         campaignsMeta.forEach(c => { campMeta[c.id] = c.attributes.name; });
-        
         const sortedCamps = [...campaigns].sort((a, b) => b.statistics.conversion_value - a.statistics.conversion_value);
         const campTbody = document.getElementById('campaigns-tbody');
-        
         sortedCamps.slice(0, 20).forEach(c => {
           const name = campMeta[c.groupings.campaign_id] || `Campaign ${c.groupings.campaign_id.slice(0, 8)}`;
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td>${name}</td>
-            <td><span class="channel ${c.groupings.send_channel}">${c.groupings.send_channel === 'email' ? '📧' : '📱'}</span></td>
+            <td><span class="channel">${c.groupings.send_channel === 'email' ? '📧' : '📱'}</span></td>
             <td>${formatNumber(c.statistics.recipients)}</td>
-            <td>${formatPctShort(c.statistics.open_rate)}</td>
-            <td>${formatPctShort(c.statistics.click_rate)}</td>
+            <td>${formatPct(c.statistics.open_rate)}</td>
+            <td>${formatPct(c.statistics.click_rate)}</td>
             <td class="highlight">${formatCurrency(c.statistics.conversion_value)}</td>
             <td>${formatNumber(c.statistics.conversions)}</td>
           `;
@@ -527,10 +485,9 @@
         
       } catch (error) {
         console.error('Dashboard error:', error);
-        document.querySelector('.container').innerHTML = `<div style="color: #ef4444; padding: 2rem; text-align: center;"><h2>Failed to load</h2><p>${error.message}</p></div>`;
+        document.querySelector('.container').innerHTML = `<div style="color: #ef4444; padding: 2rem;"><h2>Failed to load</h2><p>${error.message}</p></div>`;
       }
     }
-
     init();
   </script>
 </body>

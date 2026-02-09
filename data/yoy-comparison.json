@@ -1,0 +1,209 @@
+{
+  "years": [
+    "2024",
+    "2025"
+  ],
+  "by_type": {
+    "Welcome": {
+      "2024": {
+        "revenue": 0,
+        "clicks": 0
+      },
+      "2025": {
+        "clicks": 15723.0,
+        "revenue": 513349.3890899999,
+        "recipients": 165763.0,
+        "conversions": 3431.0,
+        "flows": [
+          "10M: Welcome (EU-DE)",
+          "10M: Welcome (EU-EN) - (UK)",
+          "10M: Welcome 2023",
+          "10M: Welcome (EU-EN) - (EU)",
+          "10M: Welcome (EU-NL)",
+          "10M: Welcome (SMS)"
+        ]
+      }
+    },
+    "Checkout Abandonment": {
+      "2024": {
+        "clicks": 817.0,
+        "revenue": 27460.50996,
+        "recipients": 4251.0,
+        "conversions": 212.0,
+        "flows": [
+          "Retention - Checkout Abandonment"
+        ]
+      },
+      "2025": {
+        "clicks": 1820.0,
+        "revenue": 114087.94987,
+        "recipients": 13787.0,
+        "conversions": 864.0,
+        "flows": [
+          "10M: Checkout Abandonment (EU-NL)",
+          "10M: Checkout Abandonment",
+          "10M: Checkout Abandonment (EU-EN) - (EU)",
+          "10M: Checkout Abandonment (EU-EN) - (UK)",
+          "Retention - Checkout Abandonment",
+          "10M: Checkout Abandonment (EU-DE)"
+        ]
+      }
+    },
+    "Browse Abandonment": {
+      "2024": {
+        "clicks": 620.0,
+        "revenue": 38101.55010000001,
+        "recipients": 16608.0,
+        "conversions": 349.0,
+        "flows": [
+          "Retention - Browse Abandonment"
+        ]
+      },
+      "2025": {
+        "clicks": 2371.0,
+        "revenue": 75693.89000000001,
+        "recipients": 68899.0,
+        "conversions": 653.0,
+        "flows": [
+          "10M: Browse Abandonment (EU-EN) - (EU)",
+          "Retention - Browse Abandonment",
+          "10M: Browse Abandonment (EU-EN) - (UK)",
+          "10M: Browse Abandonment",
+          "10M: Browse Abandonment (EU-DE)",
+          "10M: Browse Abandonment (EU-NL)"
+        ]
+      }
+    },
+    "Cart Abandonment": {
+      "2024": {
+        "clicks": 405.0,
+        "revenue": 19745.57002,
+        "recipients": 3559.0,
+        "conversions": 143.0,
+        "flows": [
+          "Retention - Cart Abandonment"
+        ]
+      },
+      "2025": {
+        "clicks": 951.0,
+        "revenue": 47974.59004,
+        "recipients": 9406.0,
+        "conversions": 310.0,
+        "flows": [
+          "10M: Cart Abandonment",
+          "10M: Cart Abandonment (EU-DE)",
+          "10M: Cart Abandonment (EU-EN) - (EU)",
+          "Retention - Cart Abandonment",
+          "10M: Cart Abandonment (EU- EN) - (UK)",
+          "10M: Cart Abandonment (EU-NL)"
+        ]
+      }
+    },
+    "Loyalty (TOKI)": {
+      "2024": {
+        "clicks": 6711.0,
+        "revenue": 44677.269980000005,
+        "recipients": 91660.0,
+        "conversions": 617.0,
+        "flows": [
+          "TOKI - Joined Program",
+          "TOKI - Reward Tier Earned",
+          "TOKI - Referral Completed"
+        ]
+      },
+      "2025": {
+        "clicks": 6507.0,
+        "revenue": 40156.94992,
+        "recipients": 108027.0,
+        "conversions": 536.0,
+        "flows": [
+          "TOKI - Joined Program",
+          "TOKI - Reward Tier Earned",
+          "TOKI - Referral Completed"
+        ]
+      }
+    },
+    "Post Purchase": {
+      "2024": {
+        "clicks": 2822.0,
+        "revenue": 10828.699929999999,
+        "recipients": 40322.0,
+        "conversions": 154.0,
+        "flows": [
+          "10M: Post Purchase",
+          "10M: Post Purchase (INSxLBX)"
+        ]
+      },
+      "2025": {
+        "clicks": 6739.0,
+        "revenue": 24340.03995,
+        "recipients": 113588.0,
+        "conversions": 338.0,
+        "flows": [
+          "10M: Post Purchase",
+          "Post Purchase Clear Mini (for past profiles only)",
+          "10M: Post Purchase (INSxLBX)"
+        ]
+      }
+    },
+    "Review Request": {
+      "2024": {
+        "clicks": 607.0,
+        "revenue": 2488.41,
+        "recipients": 22927.0,
+        "conversions": 34.0,
+        "flows": [
+          "Junip - Review Blast",
+          "Junip Review Request Flow"
+        ]
+      },
+      "2025": {
+        "clicks": 1122.0,
+        "revenue": 2992.53999,
+        "recipients": 36718.0,
+        "conversions": 66.0,
+        "flows": [
+          "Junip - Review Blast",
+          "Junip Review Request Flow"
+        ]
+      }
+    },
+    "SMS Flows": {
+      "2024": {
+        "revenue": 0,
+        "clicks": 0
+      },
+      "2025": {
+        "clicks": 233.0,
+        "revenue": 202.31,
+        "recipients": 2057.0,
+        "conversions": 1.0,
+        "flows": [
+          "Amazon SMS 2",
+          "Amazon SMS - Mini Pack",
+          "Amazon SMS - Ordered",
+          "Amazon SMS - Phone Satchel Message"
+        ]
+      }
+    },
+    "Other": {
+      "2024": {
+        "revenue": 0,
+        "clicks": 0
+      },
+      "2025": {
+        "clicks": 517.0,
+        "revenue": 144.25,
+        "recipients": 1285.0,
+        "conversions": 10.0,
+        "flows": [
+          "Superfiliate Enrolled",
+          "Superfiliate Application Received",
+          "Superfiliate Conversion Flow",
+          "QZ4Yi5",
+          "Superfiliate Application Denied"
+        ]
+      }
+    }
+  }
+}
