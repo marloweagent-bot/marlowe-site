@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunchbox Klaviyo Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card: #141414;
+      --border: #262626;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --accent: #3D1CB1;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #eab308;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .logo span {
+      background: var(--accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .last-updated {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .metric-card .label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-card .value {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .metric-card .sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .chart-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .chart-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .chart-container {
+      position: relative;
+      height: 250px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    td {
+      font-size: 0.875rem;
+    }
+
+    tr:hover {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .status.live {
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--green);
+    }
+
+    .status.draft {
+      background: rgba(234, 179, 8, 0.1);
+      color: var(--yellow);
+    }
+
+    .status.manual {
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+    }
+
+    .back-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    .channel-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .channel-badge.email {
+      background: rgba(61, 28, 177, 0.2);
+      color: #8b5cf6;
+    }
+
+    .channel-badge.sms {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--green);
+    }
+
+    .highlight {
+      color: var(--green);
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .charts-grid { grid-template-columns: 1fr; }
+      header { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <a href="index.html" class="back-link">← Back</a>
+        <h1>Lunchbox Klaviyo</h1>
+        <span>Dashboard</span>
+      </div>
+      <div class="last-updated">Last 365 Days · Updated: <span id="update-time">Loading...</span></div>
+    </header>
+
+    <!-- Summary Metrics -->
+    <div class="metrics-grid" id="summary-metrics">
+      <div class="metric-card">
+        <div class="label">Total Recipients</div>
+        <div class="value" id="total-recipients">-</div>
+        <div class="sub" id="recipients-sub">-</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Total Revenue</div>
+        <div class="value highlight" id="total-revenue">-</div>
+        <div class="sub" id="revenue-sub">-</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Avg Open Rate</div>
+        <div class="value" id="avg-open-rate">-</div>
+        <div class="sub">Email campaigns</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Avg Click Rate</div>
+        <div class="value" id="avg-click-rate">-</div>
+        <div class="sub">All channels</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Total Conversions</div>
+        <div class="value" id="total-conversions">-</div>
+        <div class="sub" id="conversions-sub">-</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Campaigns Sent</div>
+        <div class="value" id="campaigns-sent">-</div>
+        <div class="sub" id="campaigns-sub">-</div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Revenue by Channel</h3>
+        <div class="chart-container">
+          <canvas id="revenue-chart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Engagement Comparison</h3>
+        <div class="chart-container">
+          <canvas id="engagement-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flow vs Campaign Revenue -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>Revenue: Flows vs Campaigns</h3>
+        <div class="chart-container">
+          <canvas id="source-chart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Top 10 Flows by Revenue</h3>
+        <div class="chart-container">
+          <canvas id="flows-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Flows Table -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Top Performing Flows</h2>
+      </div>
+      <div class="chart-card">
+        <table id="flows-table">
+          <thead>
+            <tr>
+              <th>Flow Name</th>
+              <th>Status</th>
+              <th>Recipients</th>
+              <th>Open Rate</th>
+              <th>Click Rate</th>
+              <th>Revenue</th>
+              <th>Conv.</th>
+            </tr>
+          </thead>
+          <tbody id="flows-tbody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Top Campaigns Table -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Top Campaigns by Revenue</h2>
+      </div>
+      <div class="chart-card">
+        <table id="campaigns-table">
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>Channel</th>
+              <th>Recipients</th>
+              <th>Open Rate</th>
+              <th>Click Rate</th>
+              <th>Revenue</th>
+              <th>Conv.</th>
+            </tr>
+          </thead>
+          <tbody id="campaigns-tbody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Format helpers
+    const formatCurrency = (num) => '$' + Math.round(num).toLocaleString('en-US');
+    const formatNumber = (num) => Math.round(num).toLocaleString('en-US');
+    const formatPercent = (num) => (num * 100).toFixed(1) + '%';
+
+    // Load data from JSON files
+    async function loadData() {
+      const [campaignsRes, flowsRes, flowsMetaRes, campaignsMetaRes, lastUpdatedRes] = await Promise.all([
+        fetch('data/campaigns.json'),
+        fetch('data/flows.json'),
+        fetch('data/flows-meta.json'),
+        fetch('data/campaigns-meta.json'),
+        fetch('data/last-updated.txt')
+      ]);
+
+      const campaigns = await campaignsRes.json();
+      const flows = await flowsRes.json();
+      const flowsMeta = await flowsMetaRes.json();
+      const campaignsMeta = await campaignsMetaRes.json();
+      const lastUpdated = await lastUpdatedRes.text();
+
+      return {
+        campaigns: campaigns.data?.attributes?.results || [],
+        flows: flows.data?.attributes?.results || [],
+        flowsMeta: flowsMeta.data || [],
+        campaignsMeta: campaignsMeta.data || [],
+        lastUpdated: lastUpdated.trim()
+      };
+    }
+
+    // Aggregate campaign data
+    function aggregateCampaignData(data) {
+      const emailData = data.filter(d => d.groupings.send_channel === 'email');
+      const smsData = data.filter(d => d.groupings.send_channel === 'sms');
+
+      const aggregate = (items) => {
+        const totals = {
+          recipients: 0, opens: 0, clicks: 0, conversions: 0,
+          conversion_value: 0, unsubscribes: 0
+        };
+
+        items.forEach(item => {
+          totals.recipients += item.statistics.recipients || 0;
+          totals.opens += item.statistics.opens || 0;
+          totals.clicks += item.statistics.clicks || 0;
+          totals.conversions += item.statistics.conversions || 0;
+          totals.conversion_value += item.statistics.conversion_value || 0;
+          totals.unsubscribes += item.statistics.unsubscribes || 0;
+        });
+
+        totals.open_rate = totals.recipients > 0 ? totals.opens / totals.recipients : 0;
+        totals.click_rate = totals.recipients > 0 ? totals.clicks / totals.recipients : 0;
+        totals.count = items.length;
+        return totals;
+      };
+
+      return { email: aggregate(emailData), sms: aggregate(smsData), all: aggregate(data) };
+    }
+
+    // Aggregate flow data
+    function aggregateFlowData(data, metadata) {
+      const metaMap = {};
+      metadata.forEach(f => {
+        metaMap[f.id] = { name: f.attributes.name, status: f.attributes.status };
+      });
+
+      const flowTotals = {};
+      data.forEach(item => {
+        const flowId = item.groupings.flow_id;
+        if (!flowTotals[flowId]) {
+          flowTotals[flowId] = {
+            id: flowId,
+            name: metaMap[flowId]?.name || flowId,
+            status: metaMap[flowId]?.status || 'unknown',
+            recipients: 0, opens: 0, clicks: 0, conversions: 0, conversion_value: 0
+          };
+        }
+        flowTotals[flowId].recipients += item.statistics.recipients || 0;
+        flowTotals[flowId].opens += item.statistics.opens || 0;
+        flowTotals[flowId].clicks += item.statistics.clicks || 0;
+        flowTotals[flowId].conversions += item.statistics.conversions || 0;
+        flowTotals[flowId].conversion_value += item.statistics.conversion_value || 0;
+      });
+
+      Object.values(flowTotals).forEach(flow => {
+        flow.open_rate = flow.recipients > 0 ? flow.opens / flow.recipients : 0;
+        flow.click_rate = flow.recipients > 0 ? flow.clicks / flow.recipients : 0;
+      });
+
+      return Object.values(flowTotals).sort((a, b) => b.conversion_value - a.conversion_value);
+    }
+
+    // Render everything
+    async function init() {
+      try {
+        const { campaigns, flows, flowsMeta, campaignsMeta, lastUpdated } = await loadData();
+
+        document.getElementById('update-time').textContent = new Date(lastUpdated).toLocaleString();
+
+        const campaignAgg = aggregateCampaignData(campaigns);
+        const flowAgg = aggregateFlowData(flows, flowsMeta);
+        const flowTotalRevenue = flowAgg.reduce((sum, f) => sum + f.conversion_value, 0);
+        const flowTotalConversions = flowAgg.reduce((sum, f) => sum + f.conversions, 0);
+
+        // Summary metrics
+        document.getElementById('total-recipients').textContent = formatNumber(campaignAgg.all.recipients);
+        document.getElementById('recipients-sub').textContent = `${formatNumber(campaignAgg.email.count)} email + ${formatNumber(campaignAgg.sms.count)} SMS campaigns`;
+        
+        document.getElementById('total-revenue').textContent = formatCurrency(campaignAgg.all.conversion_value + flowTotalRevenue);
+        document.getElementById('revenue-sub').textContent = `Campaigns: ${formatCurrency(campaignAgg.all.conversion_value)} · Flows: ${formatCurrency(flowTotalRevenue)}`;
+        
+        document.getElementById('avg-open-rate').textContent = formatPercent(campaignAgg.email.open_rate);
+        document.getElementById('avg-click-rate').textContent = formatPercent(campaignAgg.all.click_rate);
+        
+        document.getElementById('total-conversions').textContent = formatNumber(campaignAgg.all.conversions + flowTotalConversions);
+        document.getElementById('conversions-sub').textContent = `Campaigns: ${formatNumber(campaignAgg.all.conversions)} · Flows: ${formatNumber(flowTotalConversions)}`;
+        
+        document.getElementById('campaigns-sent').textContent = formatNumber(campaignAgg.all.count);
+        document.getElementById('campaigns-sub').textContent = `${formatNumber(campaignAgg.email.count)} email · ${formatNumber(campaignAgg.sms.count)} SMS`;
+
+        // Charts
+        const chartColors = {
+          purple: '#3D1CB1',
+          green: '#22c55e',
+          blue: '#3b82f6',
+          yellow: '#eab308'
+        };
+
+        // Revenue by Channel
+        new Chart(document.getElementById('revenue-chart'), {
+          type: 'doughnut',
+          data: {
+            labels: ['Email', 'SMS'],
+            datasets: [{
+              data: [campaignAgg.email.conversion_value, campaignAgg.sms.conversion_value],
+              backgroundColor: [chartColors.purple, chartColors.green],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { color: '#a1a1aa' } },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) => `${ctx.label}: ${formatCurrency(ctx.raw)}`
+                }
+              }
+            }
+          }
+        });
+
+        // Engagement comparison
+        new Chart(document.getElementById('engagement-chart'), {
+          type: 'bar',
+          data: {
+            labels: ['Email Campaigns', 'SMS Campaigns', 'Flows (Email)'],
+            datasets: [
+              {
+                label: 'Open Rate',
+                data: [campaignAgg.email.open_rate * 100, 0, flowAgg.slice(0, 10).reduce((sum, f) => sum + f.open_rate, 0) / Math.min(10, flowAgg.length) * 100],
+                backgroundColor: chartColors.purple
+              },
+              {
+                label: 'Click Rate',
+                data: [campaignAgg.email.click_rate * 100, campaignAgg.sms.click_rate * 100, flowAgg.slice(0, 10).reduce((sum, f) => sum + f.click_rate, 0) / Math.min(10, flowAgg.length) * 100],
+                backgroundColor: chartColors.green
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: { beginAtZero: true, grid: { color: '#262626' }, ticks: { color: '#a1a1aa', callback: v => v + '%' } },
+              x: { grid: { display: false }, ticks: { color: '#a1a1aa' } }
+            },
+            plugins: { legend: { position: 'bottom', labels: { color: '#a1a1aa' } } }
+          }
+        });
+
+        // Flows vs Campaigns revenue
+        new Chart(document.getElementById('source-chart'), {
+          type: 'doughnut',
+          data: {
+            labels: ['Campaigns', 'Flows'],
+            datasets: [{
+              data: [campaignAgg.all.conversion_value, flowTotalRevenue],
+              backgroundColor: [chartColors.blue, chartColors.yellow],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { color: '#a1a1aa' } },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) => `${ctx.label}: ${formatCurrency(ctx.raw)}`
+                }
+              }
+            }
+          }
+        });
+
+        // Top flows horizontal bar
+        const top10Flows = flowAgg.slice(0, 10);
+        new Chart(document.getElementById('flows-chart'), {
+          type: 'bar',
+          data: {
+            labels: top10Flows.map(f => f.name.length > 25 ? f.name.slice(0, 25) + '...' : f.name),
+            datasets: [{
+              data: top10Flows.map(f => f.conversion_value),
+              backgroundColor: chartColors.purple
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: { grid: { color: '#262626' }, ticks: { color: '#a1a1aa', callback: v => '$' + (v/1000).toFixed(0) + 'k' } },
+              y: { grid: { display: false }, ticks: { color: '#a1a1aa', font: { size: 10 } } }
+            },
+            plugins: { legend: { display: false } }
+          }
+        });
+
+        // Flows table
+        const flowsTbody = document.getElementById('flows-tbody');
+        top10Flows.forEach(flow => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${flow.name}</td>
+            <td><span class="status ${flow.status}">${flow.status}</span></td>
+            <td>${formatNumber(flow.recipients)}</td>
+            <td>${formatPercent(flow.open_rate)}</td>
+            <td>${formatPercent(flow.click_rate)}</td>
+            <td class="highlight">${formatCurrency(flow.conversion_value)}</td>
+            <td>${formatNumber(flow.conversions)}</td>
+          `;
+          flowsTbody.appendChild(tr);
+        });
+
+        // Campaigns table
+        const metaMap = {};
+        campaignsMeta.forEach(c => {
+          metaMap[c.id] = { name: c.attributes.name, status: c.attributes.status };
+        });
+
+        const topCampaigns = [...campaigns].sort((a, b) => b.statistics.conversion_value - a.statistics.conversion_value).slice(0, 15);
+        const campaignsTbody = document.getElementById('campaigns-tbody');
+        topCampaigns.forEach(campaign => {
+          const id = campaign.groupings.campaign_id;
+          const meta = metaMap[id] || {};
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${meta.name || id.slice(0, 12) + '...'}</td>
+            <td><span class="channel-badge ${campaign.groupings.send_channel}">${campaign.groupings.send_channel}</span></td>
+            <td>${formatNumber(campaign.statistics.recipients)}</td>
+            <td>${formatPercent(campaign.statistics.open_rate)}</td>
+            <td>${formatPercent(campaign.statistics.click_rate)}</td>
+            <td class="highlight">${formatCurrency(campaign.statistics.conversion_value)}</td>
+            <td>${formatNumber(campaign.statistics.conversions)}</td>
+          `;
+          campaignsTbody.appendChild(tr);
+        });
+
+      } catch (error) {
+        console.error('Dashboard error:', error);
+        document.querySelector('.container').innerHTML = `
+          <div style="color: #ef4444; padding: 2rem; text-align: center;">
+            <h2>Failed to load dashboard</h2>
+            <p>${error.message}</p>
+            <p style="margin-top: 1rem; color: #a1a1aa;">Make sure the data files exist in /data/</p>
+          </div>
+        `;
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
