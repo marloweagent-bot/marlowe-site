@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unplugs Industrial | Sales Prospect Database</title>
+    <style>
+        :root {
+            --primary: #29EF78;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --gray: #1a1a1a;
+            --light-gray: #2a2a2a;
+            --text: #e0e0e0;
+            --text-muted: #888;
+            --high: #29EF78;
+            --medium-high: #7ddb9a;
+            --medium: #d4d47d;
+            --low: #db7d7d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        
+        header {
+            background: var(--darker);
+            border-bottom: 1px solid var(--light-gray);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span { color: var(--text); font-weight: 400; }
+        
+        .stats {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .stat {
+            background: var(--gray);
+            padding: 8px 15px;
+            border-radius: 8px;
+        }
+        
+        .stat strong { color: var(--primary); }
+        
+        /* Hero */
+        .hero {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .hero h1 { font-size: 2rem; margin-bottom: 10px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { color: var(--text-muted); max-width: 700px; }
+        
+        /* Filters */
+        .filters {
+            padding: 25px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .filter-group label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        select, input[type="text"] {
+            background: var(--gray);
+            border: 1px solid var(--light-gray);
+            color: var(--text);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            min-width: 150px;
+        }
+        
+        select:hover, input:hover { border-color: var(--primary); }
+        select:focus, input:focus { outline: none; border-color: var(--primary); }
+        
+        .search-box { min-width: 250px; }
+        
+        .filter-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .pill {
+            background: var(--gray);
+            border: 1px solid var(--light-gray);
+            color: var(--text);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .pill:hover { border-color: var(--primary); }
+        .pill.active { background: var(--primary); color: var(--dark); border-color: var(--primary); }
+        
+        /* Table */
+        .table-container {
+            padding: 30px 0;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        th {
+            background: var(--darker);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            position: sticky;
+            top: 70px;
+        }
+        
+        th:hover { background: var(--gray); }
+        
+        tr:hover { background: var(--light-gray); }
+        
+        .company-cell {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .name-cell a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .name-cell a:hover { text-decoration: underline; }
+        
+        .title-cell { color: var(--text-muted); font-size: 0.85rem; }
+        
+        .hunger-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .hunger-high { background: rgba(41, 239, 120, 0.2); color: var(--high); }
+        .hunger-medium-high { background: rgba(125, 219, 154, 0.2); color: var(--medium-high); }
+        .hunger-medium { background: rgba(212, 212, 125, 0.2); color: var(--medium); }
+        .hunger-low { background: rgba(219, 125, 125, 0.2); color: var(--low); }
+        
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: var(--gray);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .priority-top { border-color: var(--primary); color: var(--primary); }
+        .priority-executive { border-color: #9B59B6; color: #9B59B6; }
+        .priority-high { border-color: #3498db; color: #3498db; }
+        
+        .location-cell {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .relevance-cell {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            max-width: 300px;
+        }
+        
+        /* Legend */
+        .legend {
+            padding: 20px 0;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 20px;
+        }
+        
+        .legend h3 {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+        
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .filters { flex-direction: column; align-items: stretch; }
+            .filter-group { width: 100%; }
+            select, input { width: 100%; }
+            th, td { padding: 10px 8px; font-size: 0.8rem; }
+            .relevance-cell { display: none; }
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+        
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--light-gray);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Unplugs <span>Industrial Prospects</span></div>
+            <div class="stats">
+                <div class="stat"><strong id="totalCount">75</strong> Prospects</div>
+                <div class="stat"><strong id="filteredCount">75</strong> Showing</div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="hero">
+            <h1>PPE Sales <span>Prospect Database</span></h1>
+            <p>Senior sales and business development contacts from top industrial hearing protection suppliers. Filtered for relationship depth and career hunger — the sweet spot between experience and ambition.</p>
+        </div>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <label>Search</label>
+                <input type="text" class="search-box" id="searchInput" placeholder="Name, title, company...">
+            </div>
+            
+            <div class="filter-group">
+                <label>Company</label>
+                <select id="companyFilter">
+                    <option value="">All Companies</option>
+                    <option value="3M">3M</option>
+                    <option value="Honeywell/PIP">Honeywell/PIP</option>
+                    <option value="Moldex">Moldex</option>
+                    <option value="MSA Safety">MSA Safety</option>
+                    <option value="uvex/HexArmor">uvex/HexArmor</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Hunger Fit</label>
+                <select id="hungerFilter">
+                    <option value="">All Levels</option>
+                    <option value="High">High — Young Hustlers</option>
+                    <option value="Medium-High">Medium-High — Prime Candidates</option>
+                    <option value="Medium">Medium — Established Players</option>
+                    <option value="Low">Low — Comfortable Executives</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Priority</label>
+                <select id="priorityFilter">
+                    <option value="">All Priorities</option>
+                    <option value="Top Target">Top Targets</option>
+                    <option value="Executive">Executive</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Quick Filter</label>
+                <div class="filter-pills">
+                    <span class="pill" data-filter="sweet-spot">🎯 Sweet Spot</span>
+                    <span class="pill" data-filter="hustlers">🔥 Hustlers</span>
+                    <span class="pill" data-filter="decision-makers">👔 Decision Makers</span>
+                    <span class="pill" data-filter="clear">Clear All</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table id="prospectsTable">
+                <thead>
+                    <tr>
+                        <th data-sort="company">Company</th>
+                        <th data-sort="name">Name</th>
+                        <th data-sort="title">Title</th>
+                        <th data-sort="location">Location</th>
+                        <th data-sort="hunger">Hunger Fit</th>
+                        <th data-sort="priority">Priority</th>
+                        <th>Relevance</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+            <div class="no-results" id="noResults" style="display: none;">
+                No prospects match your filters. Try adjusting your criteria.
+            </div>
+        </div>
+        
+        <div class="legend">
+            <h3>Hunger Fit Guide</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="hunger-badge hunger-high">High</span>
+                    <span>Early career, AE/Territory level, hungry for upside</span>
+                </div>
+                <div class="legend-item">
+                    <span class="hunger-badge hunger-medium-high">Medium-High</span>
+                    <span>5-10 years in, proven performer, ready for bigger opportunity</span>
+                </div>
+                <div class="legend-item">
+                    <span class="hunger-badge hunger-medium">Medium</span>
+                    <span>Established with relationships, could be tempted for right offer</span>
+                </div>
+                <div class="legend-item">
+                    <span class="hunger-badge hunger-low">Low</span>
+                    <span>Senior executive, comfortable, unlikely to jump</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Prepared for Unplugs Industrial | February 2026 | Compiled by Kharn Intelligence Unit</p>
+    </footer>
+
+    <script>
+        const prospects = [
+            {company:"3M",name:"Aric Getty",title:"Global BU Head & VP - Personal Safety Division, Hearing & Body Protection",linkedin:"https://www.linkedin.com/in/aric-getty-67b88b46/",location:"Minnesota",relevance:"Top executive overseeing entire Personal Safety Division including hearing protection",priority:"Executive",hunger:"Low"},
+            {company:"3M",name:"Eileen Simmons",title:"Sales & Marketing Leader - Personal Safety Division",linkedin:"https://www.linkedin.com/in/eileen-simmons-a8429196/",location:"Minnesota",relevance:"Leads Sales and Marketing for Personal Safety Division",priority:"High",hunger:"Medium"},
+            {company:"3M",name:"Bob Bixby",title:"Director, National Accounts",linkedin:"https://www.linkedin.com/in/bob-bixby-6796632/",location:"St. Paul, MN",relevance:"National accounts for 3M safety & industrial",priority:"High",hunger:"Low"},
+            {company:"3M",name:"Jeremy Swisher",title:"Senior Account Executive - Regional Distribution Leader",linkedin:"https://www.linkedin.com/in/jeremy-swisher-4177a543/",location:"Not specified",relevance:"Distribution leader for 3M Safety & Industrial",priority:"High",hunger:"Medium"},
+            {company:"3M",name:"Chad Schueneman",title:"Senior Key Account Channel Manager",linkedin:"https://www.linkedin.com/in/chadschueneman/",location:"Aliso Viejo, CA",relevance:"Channel management - directly handles distributor relationships",priority:"High",hunger:"Medium"},
+            {company:"3M",name:"Beth Browning",title:"Regional Sales Manager, Southeast Region, Personal Safety Division",linkedin:"https://www.linkedin.com/in/beth-browning/",location:"Southeast US",relevance:"Manages PPE sales for SE region with distribution partners",priority:"High",hunger:"Medium-High"},
+            {company:"3M",name:"Lori Tempelis",title:"Senior Vice President, Global Industrial Channel",linkedin:"https://www.linkedin.com/in/lori-tempelis-8219409/",location:"Minneapolis-St. Paul, MN",relevance:"Global head of industrial distribution channel - works with Vallen and major distributors",priority:"Executive",hunger:"Low"},
+            {company:"3M",name:"Denver Smith",title:"Key Account Distribution Leader, Southeast Region",linkedin:"https://www.linkedin.com/in/smithdenver/",location:"Lakeland, FL",relevance:"Direct distributor relationship management in Southeast",priority:"High",hunger:"Medium-High"},
+            {company:"3M",name:"Thomas Reinholt",title:"Regional Sales Manager, Personal Safety Division",linkedin:"https://www.linkedin.com/in/thomas-reinholt-a3552412/",location:"Minneapolis/Indiana",relevance:"Manages Metals/Machinery/Transportation segments",priority:"High",hunger:"Medium"},
+            {company:"3M",name:"Todd Oliver",title:"Senior Safety Sales Representative, Personal Safety Division",linkedin:"https://www.linkedin.com/in/todd-oliver-00626629/",location:"US territory-based",relevance:"25+ years safety sales - major account management",priority:"Medium",hunger:"Low"},
+            {company:"3M",name:"Melissa Kinsella-Jones",title:"National Sales Manager, Inside Sales, Safety & Industrial",linkedin:"https://www.linkedin.com/in/melissa-kinsella-jones-56795811/",location:"Minneapolis area",relevance:"Leads inside sales organization for Safety & Industrial",priority:"High",hunger:"Medium"},
+            {company:"3M",name:"Ericka Lutz",title:"Channel Marketing & Operations Leader, Global Industrial Channel",linkedin:"https://www.linkedin.com/in/erickalutz/",location:"St. Paul, MN",relevance:"Channel marketing for Safety & Industrial - distributor programs",priority:"Medium",hunger:"Medium-High"},
+            {company:"3M",name:"Jolyn Guy",title:"Regional Distribution Leader",linkedin:"https://www.linkedin.com/in/jolyn-guy-ba1a396/",location:"Midwest (OH/KY/IN/PA/WV)",relevance:"Regional distribution management - Home Depot experience",priority:"High",hunger:"Medium"},
+            {company:"3M",name:"Sampson Briggs",title:"Fall Protection Specialist",linkedin:"https://www.linkedin.com/in/sampson-briggs-524a33115/",location:"US territory-based",relevance:"Technical sales specialist - distribution and end-users",priority:"Medium",hunger:"High"},
+            {company:"3M",name:"Joe Thompson",title:"Fire & SCBA Specialist / Regional Sales Manager",linkedin:"https://www.linkedin.com/in/joethompson1/",location:"Raleigh, NC",relevance:"Supports Fire Departments AND Distribution in NC",priority:"Medium",hunger:"Medium"},
+            {company:"Honeywell/PIP",name:"Kevin Czechorski",title:"National Sales Manager, Hearing and Head Protection",linkedin:"",location:"USA",relevance:"PRIMARY TARGET - Directly responsible for hearing protection sales at PIP",priority:"Top Target",hunger:"Medium"},
+            {company:"Honeywell/PIP",name:"Michael Garceau",title:"President - PPE Business",linkedin:"https://www.linkedin.com/in/michaelegarceau/",location:"St Paul, MN",relevance:"Executive sponsor - Leads former Honeywell PPE division under PIP",priority:"Executive",hunger:"Low"},
+            {company:"Honeywell/PIP",name:"Kurt Wanner",title:"Vice President, National Accounts",linkedin:"https://www.linkedin.com/in/kurt-wanner-290403b7/",location:"Ponte Vedra Beach, FL",relevance:"Leads PIP's national accounts - 20+ accounts across 5 channels",priority:"High",hunger:"Low"},
+            {company:"Honeywell/PIP",name:"Samantha Robbins",title:"National Account Manager",linkedin:"https://www.linkedin.com/in/samantha-robbins-40a5804b/",location:"USA (Northeast)",relevance:"31 years in PPE - QSSP & OSHA 10 Certified",priority:"Medium",hunger:"Low"},
+            {company:"Honeywell/PIP",name:"Tim Kane",title:"National Account Manager",linkedin:"",location:"Cooperstown, NY",relevance:"Manages HD Supply/Staples/Airgas/Fastenal distribution",priority:"High",hunger:"Medium"},
+            {company:"Honeywell/PIP",name:"Chris Luther",title:"Regional Sales Manager",linkedin:"https://www.linkedin.com/in/chris-luther-85a0a787/",location:"Not specified",relevance:"Regional sales at PIP - prior Grainger experience - posted about VeriPRO hearing protection",priority:"High",hunger:"Medium-High"},
+            {company:"Honeywell/PIP",name:"Chelsey Driskel",title:"PPE Specialist & Regional Territory Manager",linkedin:"https://www.linkedin.com/in/chelsey-driskel-4b487ab5/",location:"Pittsburgh, PA",relevance:"Dual role PPE specialist + territory manager - direct distributor relationships",priority:"High",hunger:"High"},
+            {company:"Honeywell/PIP",name:"Brian Mara",title:"Territory Account Manager",linkedin:"https://www.linkedin.com/in/brian-mara/",location:"Concord NH",relevance:"30 years direct and channel sales - veteran Honeywell rep",priority:"Medium",hunger:"Low"},
+            {company:"Honeywell/PIP",name:"Steve Hunter",title:"PPE Solution Specialist, QSSP",linkedin:"https://www.linkedin.com/in/steve-hunter-ab952029/",location:"Eastern Pennsylvania",relevance:"QSSP certified - consults on full PPE portfolio including hearing",priority:"Medium",hunger:"Medium"},
+            {company:"Honeywell/PIP",name:"David (Dee) Wininger",title:"Account Manager II - PPE Sales Southeast",linkedin:"https://www.linkedin.com/in/dee-wininger/",location:"Birmingham, AL",relevance:"Honeywell PPE covering Southeast - Alabama grad",priority:"Medium",hunger:"Medium-High"},
+            {company:"Honeywell/PIP",name:"Tom Webb",title:"Territory Manager",linkedin:"https://www.linkedin.com/in/tom-webb-honeywell-safety-products-ba870b40/",location:"Westville, IN",relevance:"Long-tenured Honeywell territory manager - Midwest",priority:"Medium",hunger:"Low"},
+            {company:"Honeywell/PIP",name:"Michael Morgan",title:"National Channel Sales Manager",linkedin:"https://www.linkedin.com/in/michael-morgan-17915b20/",location:"Not specified",relevance:"Oversees $10M direct sales and 30 reps nationally - strong channel focus",priority:"High",hunger:"Medium"},
+            {company:"Honeywell/PIP",name:"Robert Duran QSSP",title:"Sales Professional",linkedin:"https://www.linkedin.com/in/robert-duran-qssp-85b64451/",location:"Los Angeles Metro",relevance:"QSSP certified - West Coast coverage",priority:"Medium",hunger:"Medium"},
+            {company:"Honeywell/PIP",name:"Gerson Tacher",title:"National Account Manager",linkedin:"https://www.linkedin.com/in/gerson-tacher",location:"Florida area",relevance:"Former Honeywell Regional Sales - Fastenal safety consultant background",priority:"High",hunger:"Medium"},
+            {company:"Honeywell/PIP",name:"Alexander Byrd",title:"Strategic Account Manager",linkedin:"https://www.linkedin.com/in/alexander-byrd",location:"Not specified",relevance:"Previously Regional Sales Manager - Automotive Metal Fab specialist",priority:"Medium",hunger:"Medium-High"},
+            {company:"Moldex",name:"Kris Eichelberger",title:"Vice President of Sales",linkedin:"https://www.linkedin.com/in/kris-eichelberger-63295414/",location:"St. Louis, MO",relevance:"TOP TARGET - Leads entire Moldex sales - joined 2024",priority:"Top Target",hunger:"Medium"},
+            {company:"Moldex",name:"Paul Zaitz",title:"Vice President Sales, US and Canada",linkedin:"https://www.linkedin.com/in/paul-zaitz-34074317/",location:"United States",relevance:"Senior executive overseeing North American sales",priority:"Executive",hunger:"Low"},
+            {company:"Moldex",name:"Mitch Fein",title:"Director of National Accounts",linkedin:"https://www.linkedin.com/in/mitch-fein-a19b2a14",location:"Texas",relevance:"KEY - Manages major national accounts - Vallen Safety Supply experience",priority:"High",hunger:"Medium"},
+            {company:"Moldex",name:"Bradley Davis",title:"Territory Sales Manager",linkedin:"https://www.linkedin.com/in/bradley-davis-01560830/",location:"St. Louis MO area",relevance:"20+ years - double-digit revenue growth with distributor partners",priority:"Medium",hunger:"Low"},
+            {company:"Moldex",name:"Neal Mahoney",title:"Territory Manager",linkedin:"https://www.linkedin.com/in/neal-mahoney-96238015/",location:"Okatie, SC",relevance:"25+ years - 45% territory growth track record",priority:"Medium",hunger:"Medium"},
+            {company:"Moldex",name:"Kimberly Eisler",title:"Channel Manager / Territory Manager",linkedin:"https://www.linkedin.com/in/kimberly-eisler-5b447039/",location:"Culver City, CA",relevance:"Leads territory manager team - channel/distributor relationships",priority:"High",hunger:"Medium-High"},
+            {company:"Moldex",name:"Taylor Allen",title:"Inside Sales Manager",linkedin:"https://www.linkedin.com/in/taylor-allen-23490a123/",location:"Tulsa, OK",relevance:"Inside sales leader with regional account management",priority:"High",hunger:"High"},
+            {company:"Moldex",name:"Bill Schubach",title:"VP of Sales (Retired)",linkedin:"https://www.linkedin.com/in/billschubach/",location:"Los Angeles Metro",relevance:"20+ years sales exec - worked with distribution partners (referral value)",priority:"Low",hunger:"Low"},
+            {company:"Moldex",name:"Donald Lyons",title:"Business Development Expert",linkedin:"https://www.linkedin.com/in/donald-lyons-09b119a9/",location:"TBD",relevance:"Business development and sales trainer",priority:"Medium",hunger:"Medium"},
+            {company:"Moldex",name:"Lonnie Anthony",title:"Territory Manager",linkedin:"https://www.linkedin.com/in/lonnie-anthony-aa48311a",location:"TBD",relevance:"Field territory manager - direct distributor coverage",priority:"Medium",hunger:"Medium-High"},
+            {company:"Moldex",name:"Donna Daniels",title:"Regional Sales Associate",linkedin:"https://www.linkedin.com/in/donna-daniels-97447439/",location:"Naples, FL",relevance:"Regional field sales - distributor relationships",priority:"Medium",hunger:"Medium"},
+            {company:"Moldex",name:"Greg Johnson",title:"Regional Sales Manager",linkedin:"https://au.linkedin.com/in/greg-johnson-a8bb6b57",location:"Brisbane, Australia",relevance:"ANZ market - international distributor experience",priority:"Medium",hunger:"Medium"},
+            {company:"Moldex",name:"Scott Draeger",title:"Pacific Northwest Territory Sales Manager",linkedin:"",location:"Pacific Northwest",relevance:"Territory sales - channel partner development - came from Drager",priority:"Medium",hunger:"Medium-High"},
+            {company:"Moldex",name:"John Quist",title:"Inside Sales Representative",linkedin:"",location:"Culver City, CA",relevance:"Inside sales - prior 3M experience",priority:"Medium",hunger:"High"},
+            {company:"MSA Safety",name:"Christopher Cerutti",title:"Global Distribution Senior Manager",linkedin:"https://www.linkedin.com/in/christopher-cerutti-937096b0/",location:"PA (HQ likely)",relevance:"TOP TARGET - Directly manages MSA's global distribution",priority:"Top Target",hunger:"Medium"},
+            {company:"MSA Safety",name:"Darin Brame",title:"Global Sales Director",linkedin:"https://www.linkedin.com/in/darin-brame-b7190319/",location:"Yorba Linda, CA",relevance:"Global sales authority - senior decision-maker",priority:"High",hunger:"Low"},
+            {company:"MSA Safety",name:"Ben Mauti",title:"Director, Americas Segment Marketing, Digital Channels, Inside Sales",linkedin:"https://www.linkedin.com/in/mauti/",location:"Pittsburgh area",relevance:"Oversees inside sales & channel marketing for all Americas",priority:"High",hunger:"Medium"},
+            {company:"MSA Safety",name:"Eric Griffin",title:"Regional Sales & Business Development Leader, Gulf Coast",linkedin:"https://www.linkedin.com/in/eric-griffin-02b8a77b/",location:"Gonzales, LA",relevance:"Business development focus - Gulf Coast industrial",priority:"Medium",hunger:"Medium-High"},
+            {company:"MSA Safety",name:"Steve Schmidt",title:"Director of Government Sales",linkedin:"https://www.linkedin.com/in/steve-schmidt-56b56b27/",location:"Edgewater, MD",relevance:"Director-level government/institutional focus",priority:"Medium",hunger:"Low"},
+            {company:"MSA Safety",name:"Alan Aust QSSP",title:"Sr. Territory Sales Manager",linkedin:"https://www.linkedin.com/in/alan-aust-qssp-45b691b/",location:"Washington DC-Baltimore",relevance:"QSSP certified - direct distributor relationships Mid-Atlantic",priority:"High",hunger:"Medium"},
+            {company:"MSA Safety",name:"Bob Strickland QSSP",title:"Territory Sales Manager",linkedin:"https://www.linkedin.com/in/bob-strickland-qssp-30878556/",location:"US",relevance:"28+ years industrial safety/MRO - strong distributor network",priority:"Medium",hunger:"Low"},
+            {company:"MSA Safety",name:"Mike Spring",title:"Territory Sales Manager",linkedin:"https://www.linkedin.com/in/mike-spring-7a008648/",location:"Greater St. Louis",relevance:"Direct territory coverage - Midwest industrial",priority:"Medium",hunger:"Medium-High"},
+            {company:"MSA Safety",name:"Joe Underwood",title:"Senior Territory Sales Manager",linkedin:"https://www.linkedin.com/in/joe-underwood-a6b95643/",location:"Williamsburg, VA",relevance:"Senior field sales - East Coast territory",priority:"Medium",hunger:"Medium"},
+            {company:"MSA Safety",name:"John Myers QSSP",title:"Territory Sales Manager",linkedin:"https://www.linkedin.com/in/john-myers-qssp-ba8aa113/",location:"Greater Phoenix",relevance:"QSSP certified - trains distributor sales teams",priority:"High",hunger:"Medium"},
+            {company:"MSA Safety",name:"Dan Judd QSSP",title:"Senior Field Sales Manager",linkedin:"https://www.linkedin.com/in/dan-judd-qssp-53808041/",location:"Little Chute, WI",relevance:"Senior field role - Wisconsin/Upper Midwest",priority:"Medium",hunger:"Medium"},
+            {company:"MSA Safety",name:"Terry Royer",title:"National Accounts Manager",linkedin:"https://www.linkedin.com/in/terry-royer-00697911",location:"Not specified",relevance:"National Accounts - key distributor/enterprise relationships",priority:"High",hunger:"Medium"},
+            {company:"MSA Safety",name:"Jeff Drake",title:"Director National Accounts",linkedin:"",location:"Cranberry Township, PA",relevance:"Director-level strategic national accounts at HQ",priority:"High",hunger:"Low"},
+            {company:"MSA Safety",name:"Dave McArthur",title:"Global Sales/Marketing Executive",linkedin:"https://www.linkedin.com/in/dave-mcarthur-a2758879/",location:"New York City Metro",relevance:"Senior executive - global sales experience",priority:"Medium",hunger:"Low"},
+            {company:"MSA Safety",name:"Tara Bowland",title:"Regional Sales Manager",linkedin:"",location:"Virginia/WV/DC",relevance:"Newly appointed Regional Sales Manager - VA/WV/DC corridor",priority:"Medium",hunger:"High"},
+            {company:"uvex/HexArmor",name:"Jon Lime",title:"VP Global Sales",linkedin:"https://www.linkedin.com/in/limetime/",location:"Grand Rapids, MI",relevance:"TOP TARGET - 20+ years strategic sales - key decision maker",priority:"Top Target",hunger:"Low"},
+            {company:"uvex/HexArmor",name:"Michael Charland QSSP",title:"Sales Director",linkedin:"https://www.linkedin.com/in/michaelcharland",location:"United States",relevance:"Sales Director - QSSP certified - channel decisions",priority:"High",hunger:"Medium"},
+            {company:"uvex/HexArmor",name:"Mark Eldersveld",title:"Channel Sales Manager",linkedin:"https://www.linkedin.com/in/mark-eldersveld-8453487/",location:"United States",relevance:"KEY - 14 years - works directly with distribution partners",priority:"High",hunger:"Medium"},
+            {company:"uvex/HexArmor",name:"Rick Wahlquist QSSP",title:"Southeast Regional Sales Manager",linkedin:"https://www.linkedin.com/in/rick-wahlquist-97495713/",location:"Southeast US",relevance:"10+ years safety - QSSP & OSHA certified - PPE Expert",priority:"Medium",hunger:"Medium"},
+            {company:"uvex/HexArmor",name:"Mackenzie Babb QSSP",title:"Regional Sales Manager",linkedin:"https://www.linkedin.com/in/mackenzie-babb-qssp-b37442187/",location:"United States",relevance:"Regional Sales Manager - QSSP - Grand Valley State grad",priority:"Medium",hunger:"High"},
+            {company:"uvex/HexArmor",name:"Dave Gelpke QSSP",title:"VP Global Accounts",linkedin:"https://www.linkedin.com/in/davegelpke/",location:"Grand Rapids, MI",relevance:"20+ years PPE - works directly with distributors on custom PPE",priority:"High",hunger:"Low"},
+            {company:"uvex/HexArmor",name:"Jeanette Baez-Caro QSSP",title:"Regional Sales Manager",linkedin:"https://www.linkedin.com/in/jeanette-baez-caro-qssp-0001ab33/",location:"Kissimmee, FL",relevance:"QSSP & OSHA 30 certified - territory sales plans - distribution",priority:"High",hunger:"Medium-High"},
+            {company:"uvex/HexArmor",name:"Nicholas DeVries",title:"Territory Sales Manager",linkedin:"https://www.linkedin.com/in/nicholas-devries-30140260/",location:"Northern California",relevance:"Northern California territory - helps end-users develop safety programs",priority:"Medium",hunger:"High"},
+            {company:"uvex/HexArmor",name:"Jake Rickfelder",title:"Channel Account Manager",linkedin:"https://www.linkedin.com/in/jake-rickfelder-255b1185",location:"Mid-Atlantic",relevance:"Channel/distribution specialist - consults with distribution partners",priority:"High",hunger:"High"},
+            {company:"uvex/HexArmor",name:"Kristin Selvius QSSP",title:"Territory Sales Manager",linkedin:"https://www.linkedin.com/in/kristin-selvius/",location:"South Carolina / Rockies",relevance:"QSSP certified - covers SC and/or Rockies territory",priority:"Medium",hunger:"Medium-High"},
+            {company:"uvex/HexArmor",name:"Nicholas Melero",title:"Account Executive",linkedin:"https://www.linkedin.com/in/nicholas-melero-815a9a12b/",location:"Grand Rapids, MI",relevance:"Inside sales AE - full sales cycle - SoCal/Hawaii from HQ",priority:"Medium",hunger:"High"},
+            {company:"uvex/HexArmor",name:"Amy Rechner",title:"Senior Inside Sales Manager",linkedin:"https://www.linkedin.com/in/amyrzimmerman",location:"Grand Rapids, MI",relevance:"Leads inside sales team at HQ - coaches Account Executives",priority:"High",hunger:"Medium"},
+            {company:"uvex/HexArmor",name:"Patrick Beadling",title:"Director Strategic Accounts",linkedin:"",location:"Grand Rapids, MI",relevance:"Director-level strategic partnerships with major accounts",priority:"High",hunger:"Medium"},
+            {company:"uvex/HexArmor",name:"Zach Haines",title:"Account Executive",linkedin:"https://www.linkedin.com/in/zach-haines-ab1a51155/",location:"Grand Rapids, MI",relevance:"AE - field demos Construction Safety Week - distributor engagement",priority:"Medium",hunger:"High"},
+            {company:"uvex/HexArmor",name:"Porter Carden",title:"Channel Account Manager",linkedin:"",location:"United States",relevance:"Channel specialist - previously Regional Sales Manager",priority:"High",hunger:"Medium-High"}
+        ];
+        
+        let currentSort = { field: null, asc: true };
+        
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            const noResults = document.getElementById('noResults');
+            
+            if (data.length === 0) {
+                tbody.innerHTML = '';
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            noResults.style.display = 'none';
+            
+            tbody.innerHTML = data.map(p => {
+                const hungerClass = p.hunger.toLowerCase().replace(' ', '-');
+                const priorityClass = p.priority.toLowerCase().replace(' ', '-');
+                const linkedinLink = p.linkedin ? 
+                    `<a href="${p.linkedin}" target="_blank">${p.name}</a>` : 
+                    p.name;
+                
+                return `
+                    <tr>
+                        <td class="company-cell">${p.company}</td>
+                        <td class="name-cell">${linkedinLink}</td>
+                        <td class="title-cell">${p.title}</td>
+                        <td class="location-cell">${p.location}</td>
+                        <td><span class="hunger-badge hunger-${hungerClass}">${p.hunger}</span></td>
+                        <td><span class="priority-badge priority-${priorityClass}">${p.priority}</span></td>
+                        <td class="relevance-cell">${p.relevance}</td>
+                    </tr>
+                `;
+            }).join('');
+            
+            document.getElementById('filteredCount').textContent = data.length;
+        }
+        
+        function filterData() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const company = document.getElementById('companyFilter').value;
+            const hunger = document.getElementById('hungerFilter').value;
+            const priority = document.getElementById('priorityFilter').value;
+            
+            let filtered = prospects.filter(p => {
+                const matchSearch = !search || 
+                    p.name.toLowerCase().includes(search) ||
+                    p.title.toLowerCase().includes(search) ||
+                    p.company.toLowerCase().includes(search) ||
+                    p.location.toLowerCase().includes(search);
+                const matchCompany = !company || p.company === company;
+                const matchHunger = !hunger || p.hunger === hunger;
+                const matchPriority = !priority || p.priority === priority;
+                
+                return matchSearch && matchCompany && matchHunger && matchPriority;
+            });
+            
+            if (currentSort.field) {
+                filtered.sort((a, b) => {
+                    const aVal = a[currentSort.field] || '';
+                    const bVal = b[currentSort.field] || '';
+                    const cmp = aVal.localeCompare(bVal);
+                    return currentSort.asc ? cmp : -cmp;
+                });
+            }
+            
+            renderTable(filtered);
+        }
+        
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', filterData);
+        document.getElementById('companyFilter').addEventListener('change', filterData);
+        document.getElementById('hungerFilter').addEventListener('change', filterData);
+        document.getElementById('priorityFilter').addEventListener('change', filterData);
+        
+        // Sort headers
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                const field = th.dataset.sort;
+                if (currentSort.field === field) {
+                    currentSort.asc = !currentSort.asc;
+                } else {
+                    currentSort.field = field;
+                    currentSort.asc = true;
+                }
+                filterData();
+            });
+        });
+        
+        // Quick filter pills
+        document.querySelectorAll('.pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+                
+                const filter = pill.dataset.filter;
+                
+                if (filter === 'clear') {
+                    document.getElementById('searchInput').value = '';
+                    document.getElementById('companyFilter').value = '';
+                    document.getElementById('hungerFilter').value = '';
+                    document.getElementById('priorityFilter').value = '';
+                } else if (filter === 'sweet-spot') {
+                    pill.classList.add('active');
+                    document.getElementById('hungerFilter').value = 'Medium-High';
+                    document.getElementById('priorityFilter').value = '';
+                } else if (filter === 'hustlers') {
+                    pill.classList.add('active');
+                    document.getElementById('hungerFilter').value = 'High';
+                    document.getElementById('priorityFilter').value = '';
+                } else if (filter === 'decision-makers') {
+                    pill.classList.add('active');
+                    document.getElementById('hungerFilter').value = '';
+                    document.getElementById('priorityFilter').value = 'Top Target';
+                }
+                
+                filterData();
+            });
+        });
+        
+        // Initial render
+        renderTable(prospects);
+    </script>
+</body>
+</html>
