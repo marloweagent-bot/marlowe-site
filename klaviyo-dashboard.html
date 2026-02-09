@@ -53,25 +53,10 @@
       gap: 1rem;
     }
 
-    .logo h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
+    .logo h1 { font-size: 1.5rem; font-weight: 700; }
+    .logo span { background: var(--accent); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+    .last-updated { font-size: 0.75rem; color: var(--muted); }
 
-    .logo span {
-      background: var(--accent);
-      padding: 0.25rem 0.75rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .last-updated {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    /* Goals Banner */
     .goals-banner {
       background: linear-gradient(135deg, rgba(61, 28, 177, 0.15), rgba(34, 197, 94, 0.1));
       border: 1px solid var(--accent);
@@ -83,47 +68,14 @@
       gap: 1.5rem;
     }
 
-    .goal-item {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .goal-item .label {
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.25rem;
-    }
-
-    .goal-item .target {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--green);
-    }
-
-    .goal-item .current {
-      font-size: 0.875rem;
-      color: var(--muted);
-    }
-
-    .goal-item .progress-bar {
-      height: 4px;
-      background: var(--border);
-      border-radius: 2px;
-      margin-top: 0.5rem;
-      overflow: hidden;
-    }
-
-    .goal-item .progress-fill {
-      height: 100%;
-      background: var(--green);
-      border-radius: 2px;
-    }
+    .goal-item { display: flex; flex-direction: column; }
+    .goal-item .label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
+    .goal-item .target { font-size: 1.5rem; font-weight: 700; color: var(--green); }
+    .goal-item .current { font-size: 0.875rem; color: var(--muted); }
 
     .metrics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
       margin-bottom: 2rem;
     }
@@ -132,47 +84,20 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1.5rem;
+      padding: 1.25rem;
     }
 
-    .metric-card .label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-    }
+    .metric-card .label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+    .metric-card .value { font-size: 1.75rem; font-weight: 700; }
+    .metric-card .sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
 
-    .metric-card .value {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    .metric-card .sub {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.25rem;
-    }
-
-    .section {
-      margin-bottom: 2rem;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
+    .section { margin-bottom: 2rem; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .section-title { font-size: 1.25rem; font-weight: 600; }
 
     .charts-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 1.5rem;
       margin-bottom: 2rem;
     }
@@ -184,230 +109,49 @@
       padding: 1.5rem;
     }
 
-    .chart-card h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
+    .chart-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+    .chart-container { position: relative; height: 220px; }
 
-    .chart-container {
-      position: relative;
-      height: 250px;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { text-align: left; padding: 0.875rem; border-bottom: 1px solid var(--border); }
+    th { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+    tr:hover { background: rgba(255,255,255,0.02); }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+    .status { display: inline-flex; padding: 0.2rem 0.5rem; border-radius: 999px; font-size: 0.65rem; font-weight: 500; text-transform: uppercase; }
+    .status.live { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+    .status.draft { background: rgba(234, 179, 8, 0.15); color: var(--yellow); }
 
-    th, td {
-      text-align: left;
-      padding: 1rem;
-      border-bottom: 1px solid var(--border);
-    }
+    .back-link { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
+    .back-link:hover { color: var(--text); }
 
-    th {
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 600;
-    }
-
-    td {
-      font-size: 0.875rem;
-    }
-
-    tr:hover {
-      background: rgba(255,255,255,0.02);
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 500;
-    }
-
-    .status.live {
-      background: rgba(34, 197, 94, 0.1);
-      color: var(--green);
-    }
-
-    .status.draft {
-      background: rgba(234, 179, 8, 0.1);
-      color: var(--yellow);
-    }
-
-    .status.manual {
-      background: rgba(59, 130, 246, 0.1);
-      color: #3b82f6;
-    }
-
-    .back-link {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.875rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .back-link:hover {
-      color: var(--text);
-    }
-
-    .channel-badge {
-      display: inline-block;
-      padding: 0.125rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .channel-badge.email {
-      background: rgba(61, 28, 177, 0.2);
-      color: #8b5cf6;
-    }
-
-    .channel-badge.sms {
-      background: rgba(34, 197, 94, 0.2);
-      color: var(--green);
-    }
+    .channel { display: inline-block; padding: 0.125rem 0.4rem; border-radius: 3px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; }
+    .channel.email { background: rgba(61, 28, 177, 0.2); color: #8b5cf6; }
+    .channel.sms { background: rgba(34, 197, 94, 0.2); color: var(--green); }
 
     .highlight { color: var(--green); }
     .highlight-yellow { color: var(--yellow); }
     .highlight-red { color: var(--red); }
-    .highlight-blue { color: var(--blue); }
 
-    /* Test Ideas Log */
-    .test-log {
-      background: var(--card);
-      border: 1px solid var(--border);
+    .opportunity-card {
+      background: linear-gradient(135deg, rgba(234, 179, 8, 0.1), rgba(239, 68, 68, 0.05));
+      border: 1px solid var(--yellow);
       border-radius: 12px;
-      overflow: hidden;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
     }
 
-    .test-log-header {
-      background: linear-gradient(90deg, var(--accent), #6d28d9);
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .opportunity-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--yellow); }
+    .opportunity-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .opportunity-card .stats { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .opportunity-card .stat { font-size: 0.8rem; }
+    .opportunity-card .stat strong { color: var(--text); }
 
-    .test-log-header h2 {
-      font-size: 1rem;
-      font-weight: 600;
-    }
+    .msg-breakdown { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+    .msg-item { display: inline-block; margin-right: 0.75rem; }
 
-    .test-category {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .test-category:last-child {
-      border-bottom: none;
-    }
-
-    .test-category-header {
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(255,255,255,0.02);
-      cursor: pointer;
-    }
-
-    .test-category-header h3 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .test-category-header .impact {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-    }
-
-    .impact.high { background: rgba(34, 197, 94, 0.15); color: var(--green); }
-    .impact.medium { background: rgba(234, 179, 8, 0.15); color: var(--yellow); }
-
-    .test-list {
-      padding: 0 1.5rem 1rem;
-    }
-
-    .test-item {
-      padding: 1rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin-bottom: 0.75rem;
-      background: rgba(255,255,255,0.01);
-    }
-
-    .test-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .test-item h4 {
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .test-item h4 .priority {
-      font-size: 0.65rem;
-      padding: 0.15rem 0.4rem;
-      border-radius: 3px;
-      background: var(--accent);
-    }
-
-    .test-item p {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .test-item .metrics {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .test-item .metric {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    .test-item .metric strong {
-      color: var(--text);
-    }
-
-    .insight-callout {
-      background: rgba(59, 130, 246, 0.1);
-      border-left: 3px solid var(--blue);
-      padding: 1rem;
-      margin: 1rem 1.5rem;
-      border-radius: 0 8px 8px 0;
-    }
-
-    .insight-callout p {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .insight-callout strong {
-      color: var(--blue);
-    }
+    .opp-table { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 2rem; }
+    .opp-table-header { background: linear-gradient(90deg, var(--yellow), #f59e0b); padding: 1rem 1.5rem; }
+    .opp-table-header h3 { font-size: 1rem; font-weight: 600; color: #000; }
 
     @media (max-width: 768px) {
       .container { padding: 1rem; }
@@ -429,33 +173,25 @@
       <div class="last-updated">Last 365 Days · Updated: <span id="update-time">Loading...</span></div>
     </header>
 
-    <!-- 2026 Goals Banner -->
     <div class="goals-banner">
       <div class="goal-item">
         <span class="label">2026 Goal: Campaign Click Rate</span>
         <span class="target">+15% → 0.91%</span>
         <span class="current">Current: 0.79%</span>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 87%"></div>
-        </div>
       </div>
       <div class="goal-item">
         <span class="label">2026 Goal: Flow Revenue</span>
         <span class="target">+15% → $1.04M</span>
         <span class="current">Current: $906K</span>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 87%"></div>
-        </div>
       </div>
       <div class="goal-item">
-        <span class="label">Revenue Needed to Hit Goal</span>
-        <span class="target">+$136K</span>
+        <span class="label">Revenue Gap to Goal</span>
+        <span class="target">+$136K needed</span>
         <span class="current">From flow optimization</span>
       </div>
     </div>
 
-    <!-- Summary Metrics -->
-    <div class="metrics-grid" id="summary-metrics">
+    <div class="metrics-grid">
       <div class="metric-card">
         <div class="label">Total Recipients</div>
         <div class="value" id="total-recipients">-</div>
@@ -488,153 +224,29 @@
       </div>
     </div>
 
-    <!-- Test Ideas Log -->
+    <!-- Opportunities Table -->
     <div class="section">
-      <div class="section-header">
-        <h2 class="section-title">🧪 Test Ideas Log</h2>
-      </div>
-      
-      <div class="test-log">
-        <div class="test-log-header">
-          <h2>Optimization Roadmap for +15% Goals</h2>
-          <span style="font-size: 0.75rem; opacity: 0.8;">Based on flow & campaign analysis</span>
+      <div class="opp-table">
+        <div class="opp-table-header">
+          <h3>🎯 Flow Optimization Opportunities</h3>
         </div>
-
-        <div class="insight-callout">
-          <p><strong>Key Insight:</strong> Your top flow generates $502K (55% of flow revenue) with 9.76% click rate. Meanwhile, 3 flows with 50K+ recipients have &lt;3% click rates despite 90%+ open rates. This "open-click gap" represents your biggest optimization opportunity.</p>
-        </div>
-
-        <!-- Flow Revenue Tests -->
-        <div class="test-category">
-          <div class="test-category-header">
-            <h3>📈 Flow Revenue Tests</h3>
-            <span class="impact high">High Impact · +$136K potential</span>
-          </div>
-          <div class="test-list">
-            <div class="test-item">
-              <h4><span class="priority">P1</span> Welcome Flow CTA Optimization</h4>
-              <p>Your main welcome flow has 85% opens but only 9.76% clicks. Test: larger/bolder CTA buttons, single focused CTA vs multiple, urgency copy ("Limited stock"), and product imagery in hero position.</p>
-              <div class="metrics">
-                <span class="metric">Current: <strong>9.76% click</strong></span>
-                <span class="metric">Target: <strong>11.2% click (+15%)</strong></span>
-                <span class="metric">Revenue at stake: <strong>$502K</strong></span>
-              </div>
-            </div>
-            <div class="test-item">
-              <h4><span class="priority">P1</span> High-Open/Low-Click Flow Redesign</h4>
-              <p>3 flows show 90%+ open rates but &lt;3% click rates - classic content disconnect. Recipients open but don't act. Test: above-fold product showcase, social proof (reviews), clearer value prop, mobile-first design.</p>
-              <div class="metrics">
-                <span class="metric">Flows affected: <strong>3</strong></span>
-                <span class="metric">Combined recipients: <strong>33K</strong></span>
-                <span class="metric">Combined revenue: <strong>$68K</strong></span>
-              </div>
-            </div>
-            <div class="test-item">
-              <h4><span class="priority">P2</span> Checkout Abandonment Urgency Sequence</h4>
-              <p>$26K from checkout abandonment at only 2% click. Test: countdown timers, "cart expiring" copy, showing exact items left behind with images, social proof ("X people viewing this").</p>
-              <div class="metrics">
-                <span class="metric">Current: <strong>2.06% click</strong></span>
-                <span class="metric">Revenue: <strong>$26K</strong></span>
-              </div>
-            </div>
-            <div class="test-item">
-              <h4><span class="priority">P2</span> Cart Abandonment SMS Follow-up</h4>
-              <p>SMS has 3.1% click vs 0.79% email. Add SMS touchpoint to cart abandonment flow 2-4 hours after email. Keep it personal: "Hey! Your Lunchbox pack is waiting 🎒"</p>
-              <div class="metrics">
-                <span class="metric">SMS avg click: <strong>3.1%</strong></span>
-                <span class="metric">Email avg click: <strong>0.79%</strong></span>
-              </div>
-            </div>
-            <div class="test-item">
-              <h4><span class="priority">P3</span> Review Request Monetization</h4>
-              <p>Junip Review Blast has 85% opens, $380 revenue - missed opportunity. Add product upsell/cross-sell after review submission. "Thanks for the review! Here's 10% off your next pack."</p>
-              <div class="metrics">
-                <span class="metric">Recipients: <strong>19.5K</strong></span>
-                <span class="metric">Current revenue: <strong>$380</strong></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Campaign Click Tests -->
-        <div class="test-category">
-          <div class="test-category-header">
-            <h3>🎯 Campaign Click Rate Tests</h3>
-            <span class="impact high">High Impact · Target: 0.79% → 0.91%</span>
-          </div>
-          <div class="test-list">
-            <div class="test-item">
-              <h4><span class="priority">P1</span> Subject Line A/B Framework</h4>
-              <p>Top campaigns hit 5% click while average is 0.79%. Establish A/B testing protocol: Test curiosity gaps ("The one thing festival-goers forget..."), personalization, emoji vs no emoji, length variations.</p>
-              <div class="metrics">
-                <span class="metric">Best performers: <strong>4-5% click</strong></span>
-                <span class="metric">Average: <strong>0.79%</strong></span>
-                <span class="metric">Gap: <strong>5x difference</strong></span>
-              </div>
-            </div>
-            <div class="test-item">
-              <h4><span class="priority">P1</span> High-Volume Campaign Redesign</h4>
-              <p>5 campaigns with 100K+ recipients have &lt;0.5% click - that's millions of impressions underperforming. Audit these for: template issues, dead links, unclear CTAs, irrelevant content for segment.</p>
-              <div class="metrics">
-                <span class="metric">Recipients affected: <strong>600K+</strong></span>
-                <span class="metric">Current click: <strong>0.25-0.44%</strong></span>
-              </div>
-            </div>
-            <div class="test-item">
-              <h4><span class="priority">P2</span> Segmentation by Engagement</h4>
-              <p>Stop sending to non-engagers - they tank your metrics. Create segments: Hot (opened last 30d), Warm (30-90d), Cold (90d+). Tailor content and frequency by segment.</p>
-              <div class="metrics">
-                <span class="metric">Expected lift: <strong>+20-30% click rate</strong></span>
-                <span class="metric">Deliverability boost: <strong>Yes</strong></span>
-              </div>
-            </div>
-            <div class="test-item">
-              <h4><span class="priority">P2</span> SMS Campaign Expansion</h4>
-              <p>SMS campaigns average 3.1% click (4x email). Currently 45 SMS vs 123 email campaigns. Opportunity: add SMS versions of top-performing email campaigns.</p>
-              <div class="metrics">
-                <span class="metric">SMS click rate: <strong>3.1%</strong></span>
-                <span class="metric">Email click rate: <strong>0.79%</strong></span>
-              </div>
-            </div>
-            <div class="test-item">
-              <h4><span class="priority">P3</span> Interactive Content Test</h4>
-              <p>Test interactive elements: polls, quizzes ("Which pack matches your festival style?"), countdown timers for sales. These typically boost engagement 2-3x.</p>
-              <div class="metrics">
-                <span class="metric">Industry benchmark: <strong>2-3x click lift</strong></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Quick Wins -->
-        <div class="test-category">
-          <div class="test-category-header">
-            <h3>⚡ Quick Wins (This Week)</h3>
-            <span class="impact medium">Medium Impact · Fast to implement</span>
-          </div>
-          <div class="test-list">
-            <div class="test-item">
-              <h4>Activate Draft Flows</h4>
-              <p>You have 24 flows in "draft" status including legacy welcome series and cart abandonment. Audit and either delete or activate - dead flows = missed revenue.</p>
-            </div>
-            <div class="test-item">
-              <h4>Add UTM Tracking to All CTAs</h4>
-              <p>Ensure every link has proper UTMs for accurate attribution. Format: utm_source=klaviyo&utm_medium=email&utm_campaign=[flow_name]</p>
-            </div>
-            <div class="test-item">
-              <h4>Mobile Preview Audit</h4>
-              <p>Check top 5 revenue flows on mobile. If CTAs are below the fold or images are broken, you're losing clicks. 60%+ of opens are mobile.</p>
-            </div>
-            <div class="test-item">
-              <h4>Sunset Unengaged Profiles</h4>
-              <p>Profiles with no opens in 180+ days hurt deliverability. Move them to a re-engagement flow or suppress from regular sends.</p>
-            </div>
-          </div>
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Flow</th>
+              <th>Issue</th>
+              <th>Open Rate</th>
+              <th>Click Rate</th>
+              <th>Current Rev</th>
+              <th>Potential</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="opportunities-tbody"></tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Charts -->
     <div class="charts-grid">
       <div class="chart-card">
         <h3>Revenue by Channel</h3>
@@ -643,356 +255,279 @@
         </div>
       </div>
       <div class="chart-card">
-        <h3>Engagement Comparison</h3>
-        <div class="chart-container">
-          <canvas id="engagement-chart"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <!-- Flow vs Campaign Revenue -->
-    <div class="charts-grid">
-      <div class="chart-card">
-        <h3>Revenue: Flows vs Campaigns</h3>
+        <h3>Flows vs Campaigns Revenue</h3>
         <div class="chart-container">
           <canvas id="source-chart"></canvas>
         </div>
       </div>
-      <div class="chart-card">
-        <h3>Top 10 Flows by Revenue</h3>
-        <div class="chart-container">
-          <canvas id="flows-chart"></canvas>
-        </div>
-      </div>
     </div>
 
-    <!-- Top Flows Table -->
+    <!-- Top Flows -->
     <div class="section">
       <div class="section-header">
-        <h2 class="section-title">Top Performing Flows</h2>
+        <h2 class="section-title">Top Flows by Revenue</h2>
       </div>
       <div class="chart-card">
-        <table id="flows-table">
+        <table>
           <thead>
             <tr>
               <th>Flow Name</th>
               <th>Status</th>
               <th>Recipients</th>
-              <th>Open Rate</th>
-              <th>Click Rate</th>
+              <th>Open</th>
+              <th>Click</th>
               <th>Revenue</th>
-              <th>Conv.</th>
+              <th>Message Breakdown</th>
             </tr>
           </thead>
-          <tbody id="flows-tbody">
-          </tbody>
+          <tbody id="flows-tbody"></tbody>
         </table>
       </div>
     </div>
 
-    <!-- Top Campaigns Table -->
+    <!-- Top Campaigns -->
     <div class="section">
       <div class="section-header">
         <h2 class="section-title">Top Campaigns by Revenue</h2>
       </div>
       <div class="chart-card">
-        <table id="campaigns-table">
+        <table>
           <thead>
             <tr>
-              <th>Campaign</th>
-              <th>Channel</th>
+              <th>Campaign Name</th>
+              <th>Ch</th>
               <th>Recipients</th>
-              <th>Open Rate</th>
-              <th>Click Rate</th>
+              <th>Open</th>
+              <th>Click</th>
               <th>Revenue</th>
-              <th>Conv.</th>
+              <th>Conv</th>
             </tr>
           </thead>
-          <tbody id="campaigns-tbody">
-          </tbody>
+          <tbody id="campaigns-tbody"></tbody>
         </table>
       </div>
     </div>
   </div>
 
   <script>
-    // Format helpers
     const formatCurrency = (num) => '$' + Math.round(num).toLocaleString('en-US');
     const formatNumber = (num) => Math.round(num).toLocaleString('en-US');
     const formatPercent = (num) => (num * 100).toFixed(2) + '%';
+    const formatPctShort = (num) => (num * 100).toFixed(1) + '%';
 
-    // Load data from JSON files
     async function loadData() {
-      const [campaignsRes, flowsRes, flowsMetaRes, campaignsMetaRes, lastUpdatedRes] = await Promise.all([
+      const [campaignsRes, flowsRes, flowNamesRes, campaignsMetaRes, lastUpdatedRes] = await Promise.all([
         fetch('data/campaigns.json'),
         fetch('data/flows.json'),
-        fetch('data/flows-meta.json'),
+        fetch('data/flow-names.json'),
         fetch('data/campaigns-meta.json'),
         fetch('data/last-updated.txt')
       ]);
 
-      const campaigns = await campaignsRes.json();
-      const flows = await flowsRes.json();
-      const flowsMeta = await flowsMetaRes.json();
-      const campaignsMeta = await campaignsMetaRes.json();
-      const lastUpdated = await lastUpdatedRes.text();
-
       return {
-        campaigns: campaigns.data?.attributes?.results || [],
-        flows: flows.data?.attributes?.results || [],
-        flowsMeta: flowsMeta.data || [],
-        campaignsMeta: campaignsMeta.data || [],
-        lastUpdated: lastUpdated.trim()
+        campaigns: (await campaignsRes.json()).data?.attributes?.results || [],
+        flows: (await flowsRes.json()).data?.attributes?.results || [],
+        flowNames: await flowNamesRes.json(),
+        campaignsMeta: (await campaignsMetaRes.json()).data || [],
+        lastUpdated: (await lastUpdatedRes.text()).trim()
       };
     }
 
-    // Aggregate campaign data
-    function aggregateCampaignData(data) {
-      const emailData = data.filter(d => d.groupings.send_channel === 'email');
-      const smsData = data.filter(d => d.groupings.send_channel === 'sms');
-
-      const aggregate = (items) => {
-        const totals = {
-          recipients: 0, opens: 0, clicks: 0, conversions: 0,
-          conversion_value: 0, unsubscribes: 0
-        };
-
-        items.forEach(item => {
-          totals.recipients += item.statistics.recipients || 0;
-          totals.opens += item.statistics.opens || 0;
-          totals.clicks += item.statistics.clicks || 0;
-          totals.conversions += item.statistics.conversions || 0;
-          totals.conversion_value += item.statistics.conversion_value || 0;
-          totals.unsubscribes += item.statistics.unsubscribes || 0;
+    function aggregateCampaigns(data) {
+      const email = data.filter(d => d.groupings.send_channel === 'email');
+      const sms = data.filter(d => d.groupings.send_channel === 'sms');
+      
+      const agg = (items) => {
+        const t = { recipients: 0, opens: 0, clicks: 0, conversions: 0, revenue: 0, count: items.length };
+        items.forEach(i => {
+          t.recipients += i.statistics.recipients || 0;
+          t.opens += i.statistics.opens || 0;
+          t.clicks += i.statistics.clicks || 0;
+          t.conversions += i.statistics.conversions || 0;
+          t.revenue += i.statistics.conversion_value || 0;
         });
-
-        totals.open_rate = totals.recipients > 0 ? totals.opens / totals.recipients : 0;
-        totals.click_rate = totals.recipients > 0 ? totals.clicks / totals.recipients : 0;
-        totals.count = items.length;
-        return totals;
+        t.open_rate = t.recipients > 0 ? t.opens / t.recipients : 0;
+        t.click_rate = t.recipients > 0 ? t.clicks / t.recipients : 0;
+        return t;
       };
-
-      return { email: aggregate(emailData), sms: aggregate(smsData), all: aggregate(data) };
+      
+      return { email: agg(email), sms: agg(sms), all: agg(data) };
     }
 
-    // Aggregate flow data
-    function aggregateFlowData(data, metadata) {
-      const metaMap = {};
-      metadata.forEach(f => {
-        metaMap[f.id] = { name: f.attributes.name, status: f.attributes.status };
-      });
-
-      const flowTotals = {};
+    function aggregateFlows(data, names) {
+      const flows = {};
+      
       data.forEach(item => {
-        const flowId = item.groupings.flow_id;
-        if (!flowTotals[flowId]) {
-          flowTotals[flowId] = {
-            id: flowId,
-            name: metaMap[flowId]?.name || flowId,
-            status: metaMap[flowId]?.status || 'unknown',
-            recipients: 0, opens: 0, clicks: 0, conversions: 0, conversion_value: 0
+        const fid = item['groupings']['flow_id'];
+        const mid = item['groupings']['flow_message_id'];
+        
+        if (!flows[fid]) {
+          const info = names[fid] || { name: fid, status: 'unknown' };
+          flows[fid] = {
+            id: fid,
+            name: info.name,
+            status: info.status,
+            messages: [],
+            totals: { recipients: 0, opens: 0, clicks: 0, revenue: 0, conversions: 0 }
           };
         }
-        flowTotals[flowId].recipients += item.statistics.recipients || 0;
-        flowTotals[flowId].opens += item.statistics.opens || 0;
-        flowTotals[flowId].clicks += item.statistics.clicks || 0;
-        flowTotals[flowId].conversions += item.statistics.conversions || 0;
-        flowTotals[flowId].conversion_value += item.statistics.conversion_value || 0;
+        
+        // Track message
+        flows[fid].messages.push({
+          id: mid,
+          recipients: item.statistics.recipients || 0,
+          clicks: item.statistics.clicks || 0,
+          click_rate: item.statistics.click_rate || 0,
+          revenue: item.statistics.conversion_value || 0
+        });
+        
+        // Totals
+        const t = flows[fid].totals;
+        t.recipients += item.statistics.recipients || 0;
+        t.opens += item.statistics.opens || 0;
+        t.clicks += item.statistics.clicks || 0;
+        t.revenue += item.statistics.conversion_value || 0;
+        t.conversions += item.statistics.conversions || 0;
       });
-
-      Object.values(flowTotals).forEach(flow => {
-        flow.open_rate = flow.recipients > 0 ? flow.opens / flow.recipients : 0;
-        flow.click_rate = flow.recipients > 0 ? flow.clicks / flow.recipients : 0;
+      
+      // Calculate rates and sort messages
+      Object.values(flows).forEach(f => {
+        f.totals.open_rate = f.totals.recipients > 0 ? f.totals.opens / f.totals.recipients : 0;
+        f.totals.click_rate = f.totals.recipients > 0 ? f.totals.clicks / f.totals.recipients : 0;
+        f.messages.sort((a, b) => b.revenue - a.revenue);
       });
-
-      return Object.values(flowTotals).sort((a, b) => b.conversion_value - a.conversion_value);
+      
+      return Object.values(flows).sort((a, b) => b.totals.revenue - a.totals.revenue);
     }
 
-    // Render everything
+    function findOpportunities(flows) {
+      const opps = [];
+      
+      flows.forEach(f => {
+        const t = f.totals;
+        if (t.recipients > 1000 && t.open_rate > 0.5 && t.click_rate < 0.04) {
+          opps.push({
+            name: f.name,
+            status: f.status,
+            open_rate: t.open_rate,
+            click_rate: t.click_rate,
+            revenue: t.revenue,
+            recipients: t.recipients,
+            gap: t.open_rate - t.click_rate,
+            potential: t.revenue > 0 ? t.revenue * 2 : t.recipients * 0.5,
+            issue: t.click_rate < 0.02 ? 'Very low clicks' : 'Low clicks',
+            action: t.click_rate < 0.02 ? 'Redesign CTAs' : 'A/B test CTAs'
+          });
+        }
+      });
+      
+      return opps.sort((a, b) => b.gap - a.gap).slice(0, 8);
+    }
+
     async function init() {
       try {
-        const { campaigns, flows, flowsMeta, campaignsMeta, lastUpdated } = await loadData();
-
+        const { campaigns, flows, flowNames, campaignsMeta, lastUpdated } = await loadData();
+        
         document.getElementById('update-time').textContent = new Date(lastUpdated).toLocaleString();
-
-        const campaignAgg = aggregateCampaignData(campaigns);
-        const flowAgg = aggregateFlowData(flows, flowsMeta);
-        const flowTotalRevenue = flowAgg.reduce((sum, f) => sum + f.conversion_value, 0);
-        const flowTotalConversions = flowAgg.reduce((sum, f) => sum + f.conversions, 0);
-
-        // Summary metrics
-        document.getElementById('total-recipients').textContent = formatNumber(campaignAgg.all.recipients);
-        document.getElementById('recipients-sub').textContent = `${formatNumber(campaignAgg.email.count)} email + ${formatNumber(campaignAgg.sms.count)} SMS`;
         
-        document.getElementById('total-revenue').textContent = formatCurrency(campaignAgg.all.conversion_value + flowTotalRevenue);
-        document.getElementById('revenue-sub').textContent = `Campaigns: ${formatCurrency(campaignAgg.all.conversion_value)} · Flows: ${formatCurrency(flowTotalRevenue)}`;
+        const campAgg = aggregateCampaigns(campaigns);
+        const flowAgg = aggregateFlows(flows, flowNames);
+        const flowTotal = flowAgg.reduce((sum, f) => sum + f.totals.revenue, 0);
+        const flowConv = flowAgg.reduce((sum, f) => sum + f.totals.conversions, 0);
         
-        document.getElementById('avg-click-rate').textContent = formatPercent(campaignAgg.email.click_rate);
-        document.getElementById('avg-open-rate').textContent = formatPercent(campaignAgg.email.open_rate);
-        document.getElementById('flow-revenue').textContent = formatCurrency(flowTotalRevenue);
+        // Metrics
+        document.getElementById('total-recipients').textContent = formatNumber(campAgg.all.recipients);
+        document.getElementById('recipients-sub').textContent = `${campAgg.email.count} email + ${campAgg.sms.count} SMS`;
+        document.getElementById('total-revenue').textContent = formatCurrency(campAgg.all.revenue + flowTotal);
+        document.getElementById('revenue-sub').textContent = `Camp: ${formatCurrency(campAgg.all.revenue)} · Flow: ${formatCurrency(flowTotal)}`;
+        document.getElementById('avg-click-rate').textContent = formatPercent(campAgg.email.click_rate);
+        document.getElementById('flow-revenue').textContent = formatCurrency(flowTotal);
+        document.getElementById('avg-open-rate').textContent = formatPctShort(campAgg.email.open_rate);
+        document.getElementById('total-conversions').textContent = formatNumber(campAgg.all.conversions + flowConv);
+        document.getElementById('conversions-sub').textContent = `Camp: ${formatNumber(campAgg.all.conversions)} · Flow: ${formatNumber(flowConv)}`;
         
-        document.getElementById('total-conversions').textContent = formatNumber(campaignAgg.all.conversions + flowTotalConversions);
-        document.getElementById('conversions-sub').textContent = `Campaigns: ${formatNumber(campaignAgg.all.conversions)} · Flows: ${formatNumber(flowTotalConversions)}`;
-
+        // Opportunities
+        const opps = findOpportunities(flowAgg);
+        const oppTbody = document.getElementById('opportunities-tbody');
+        opps.forEach(o => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${o.name}</strong><br><span class="status ${o.status}">${o.status}</span></td>
+            <td style="color: var(--yellow)">${o.issue}</td>
+            <td>${formatPctShort(o.open_rate)}</td>
+            <td style="color: var(--red)">${formatPctShort(o.click_rate)}</td>
+            <td>${formatCurrency(o.revenue)}</td>
+            <td class="highlight">${formatCurrency(o.potential)}</td>
+            <td>${o.action}</td>
+          `;
+          oppTbody.appendChild(tr);
+        });
+        
         // Charts
-        const chartColors = {
-          purple: '#3D1CB1',
-          green: '#22c55e',
-          blue: '#3b82f6',
-          yellow: '#eab308'
-        };
-
-        // Revenue by Channel
         new Chart(document.getElementById('revenue-chart'), {
           type: 'doughnut',
           data: {
             labels: ['Email', 'SMS'],
-            datasets: [{
-              data: [campaignAgg.email.conversion_value, campaignAgg.sms.conversion_value],
-              backgroundColor: [chartColors.purple, chartColors.green],
-              borderWidth: 0
-            }]
+            datasets: [{ data: [campAgg.email.revenue, campAgg.sms.revenue], backgroundColor: ['#3D1CB1', '#22c55e'], borderWidth: 0 }]
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { position: 'bottom', labels: { color: '#a1a1aa' } },
-              tooltip: {
-                callbacks: {
-                  label: (ctx) => `${ctx.label}: ${formatCurrency(ctx.raw)}`
-                }
-              }
-            }
-          }
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#a1a1aa' } } } }
         });
-
-        // Engagement comparison
-        new Chart(document.getElementById('engagement-chart'), {
-          type: 'bar',
-          data: {
-            labels: ['Email Campaigns', 'SMS Campaigns', 'Flows (Avg)'],
-            datasets: [
-              {
-                label: 'Open Rate',
-                data: [campaignAgg.email.open_rate * 100, 0, flowAgg.slice(0, 10).reduce((sum, f) => sum + f.open_rate, 0) / Math.min(10, flowAgg.length) * 100],
-                backgroundColor: chartColors.purple
-              },
-              {
-                label: 'Click Rate',
-                data: [campaignAgg.email.click_rate * 100, campaignAgg.sms.click_rate * 100, flowAgg.slice(0, 10).reduce((sum, f) => sum + f.click_rate, 0) / Math.min(10, flowAgg.length) * 100],
-                backgroundColor: chartColors.green
-              }
-            ]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              y: { beginAtZero: true, grid: { color: '#262626' }, ticks: { color: '#a1a1aa', callback: v => v + '%' } },
-              x: { grid: { display: false }, ticks: { color: '#a1a1aa' } }
-            },
-            plugins: { legend: { position: 'bottom', labels: { color: '#a1a1aa' } } }
-          }
-        });
-
-        // Flows vs Campaigns revenue
+        
         new Chart(document.getElementById('source-chart'), {
           type: 'doughnut',
           data: {
             labels: ['Campaigns', 'Flows'],
-            datasets: [{
-              data: [campaignAgg.all.conversion_value, flowTotalRevenue],
-              backgroundColor: [chartColors.blue, chartColors.yellow],
-              borderWidth: 0
-            }]
+            datasets: [{ data: [campAgg.all.revenue, flowTotal], backgroundColor: ['#3b82f6', '#eab308'], borderWidth: 0 }]
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { position: 'bottom', labels: { color: '#a1a1aa' } },
-              tooltip: {
-                callbacks: {
-                  label: (ctx) => `${ctx.label}: ${formatCurrency(ctx.raw)}`
-                }
-              }
-            }
-          }
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#a1a1aa' } } } }
         });
-
-        // Top flows horizontal bar
-        const top10Flows = flowAgg.slice(0, 10);
-        new Chart(document.getElementById('flows-chart'), {
-          type: 'bar',
-          data: {
-            labels: top10Flows.map(f => f.name.length > 25 ? f.name.slice(0, 25) + '...' : f.name),
-            datasets: [{
-              data: top10Flows.map(f => f.conversion_value),
-              backgroundColor: chartColors.purple
-            }]
-          },
-          options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              x: { grid: { color: '#262626' }, ticks: { color: '#a1a1aa', callback: v => '$' + (v/1000).toFixed(0) + 'k' } },
-              y: { grid: { display: false }, ticks: { color: '#a1a1aa', font: { size: 10 } } }
-            },
-            plugins: { legend: { display: false } }
-          }
-        });
-
+        
         // Flows table
-        const flowsTbody = document.getElementById('flows-tbody');
-        top10Flows.forEach(flow => {
+        const flowTbody = document.getElementById('flows-tbody');
+        flowAgg.slice(0, 15).forEach(f => {
+          const msgBreakdown = f.messages.slice(0, 4).map((m, i) => {
+            const label = f.name.split(' ')[0].replace('10M:', '').trim() || 'Email';
+            return `<span class="msg-item">${label} #${i+1}: ${formatCurrency(m.revenue)}</span>`;
+          }).join('');
+          
           const tr = document.createElement('tr');
           tr.innerHTML = `
-            <td>${flow.name}</td>
-            <td><span class="status ${flow.status}">${flow.status}</span></td>
-            <td>${formatNumber(flow.recipients)}</td>
-            <td>${formatPercent(flow.open_rate)}</td>
-            <td>${formatPercent(flow.click_rate)}</td>
-            <td class="highlight">${formatCurrency(flow.conversion_value)}</td>
-            <td>${formatNumber(flow.conversions)}</td>
+            <td><strong>${f.name}</strong></td>
+            <td><span class="status ${f.status}">${f.status}</span></td>
+            <td>${formatNumber(f.totals.recipients)}</td>
+            <td>${formatPctShort(f.totals.open_rate)}</td>
+            <td>${formatPctShort(f.totals.click_rate)}</td>
+            <td class="highlight">${formatCurrency(f.totals.revenue)}</td>
+            <td><div class="msg-breakdown">${msgBreakdown}</div></td>
           `;
-          flowsTbody.appendChild(tr);
+          flowTbody.appendChild(tr);
         });
-
+        
         // Campaigns table
-        const metaMap = {};
-        campaignsMeta.forEach(c => {
-          metaMap[c.id] = { name: c.attributes.name, status: c.attributes.status };
-        });
-
-        const topCampaigns = [...campaigns].sort((a, b) => b.statistics.conversion_value - a.statistics.conversion_value).slice(0, 15);
-        const campaignsTbody = document.getElementById('campaigns-tbody');
-        topCampaigns.forEach(campaign => {
-          const id = campaign.groupings.campaign_id;
-          const meta = metaMap[id] || {};
+        const campMeta = {};
+        campaignsMeta.forEach(c => { campMeta[c.id] = c.attributes.name; });
+        
+        const sortedCamps = [...campaigns].sort((a, b) => b.statistics.conversion_value - a.statistics.conversion_value);
+        const campTbody = document.getElementById('campaigns-tbody');
+        
+        sortedCamps.slice(0, 20).forEach(c => {
+          const name = campMeta[c.groupings.campaign_id] || `Campaign ${c.groupings.campaign_id.slice(0, 8)}`;
           const tr = document.createElement('tr');
           tr.innerHTML = `
-            <td>${meta.name || id.slice(0, 12) + '...'}</td>
-            <td><span class="channel-badge ${campaign.groupings.send_channel}">${campaign.groupings.send_channel}</span></td>
-            <td>${formatNumber(campaign.statistics.recipients)}</td>
-            <td>${formatPercent(campaign.statistics.open_rate)}</td>
-            <td>${formatPercent(campaign.statistics.click_rate)}</td>
-            <td class="highlight">${formatCurrency(campaign.statistics.conversion_value)}</td>
-            <td>${formatNumber(campaign.statistics.conversions)}</td>
+            <td>${name}</td>
+            <td><span class="channel ${c.groupings.send_channel}">${c.groupings.send_channel === 'email' ? '📧' : '📱'}</span></td>
+            <td>${formatNumber(c.statistics.recipients)}</td>
+            <td>${formatPctShort(c.statistics.open_rate)}</td>
+            <td>${formatPctShort(c.statistics.click_rate)}</td>
+            <td class="highlight">${formatCurrency(c.statistics.conversion_value)}</td>
+            <td>${formatNumber(c.statistics.conversions)}</td>
           `;
-          campaignsTbody.appendChild(tr);
+          campTbody.appendChild(tr);
         });
-
+        
       } catch (error) {
         console.error('Dashboard error:', error);
-        document.querySelector('.container').innerHTML = `
-          <div style="color: #ef4444; padding: 2rem; text-align: center;">
-            <h2>Failed to load dashboard</h2>
-            <p>${error.message}</p>
-            <p style="margin-top: 1rem; color: #a1a1aa;">Make sure the data files exist in /data/</p>
-          </div>
-        `;
+        document.querySelector('.container').innerHTML = `<div style="color: #ef4444; padding: 2rem; text-align: center;"><h2>Failed to load</h2><p>${error.message}</p></div>`;
       }
     }
 

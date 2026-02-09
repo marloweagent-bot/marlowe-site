@@ -1,0 +1,141 @@
+GZQTqK|Welcome Series -- Legacy|draft
+HZcpre|Abandoned Cart - Legacy|draft
+JjjJUF|Customer Thank You|manual
+KE2GVz|Tag Lunchbox Purchaser|live
+KQWkzt|Festival Veteran Guide Funnel|draft
+KyDCDh|Tag EDCO2019 Giveaway Entrants|draft
+L7xxYg|Welcome Series - Outdoor Funnel|draft
+LwkWDF|Welcome Series|draft
+MFmuYH|Browse Abandonment|manual
+N3nFYp|Post Purchase Thank You|draft
+QPBgKT|TOKI - Referral Completed|live
+QiSqwQ|Tag lunchbox purchasers|draft
+R3NaEn|Junip Review Request Flow|live
+R3aLZp|Flow - May 15, 2025, 3:13 AM|draft
+R8E2sF|10M: Early Access (Email List)|draft
+RCZ2Di|10M: Post Purchase (EU-DE)|live
+RCdbuP|Abandoned Cart|draft
+RMeCag|Essential Flow Recommendation_|draft
+RNwHqN|Flow - May 20, 2025, 9:27 AM|draft
+RUFAnc|Post-Purchase 2.0|draft
+RYmTiX|10M: Welcome (EU-EN) - (EU)|live
+Rh4f9z|10M: Cart Abandonment (EU-DE)|live
+Rhzdza|2023Q4 Survey Responses - Non-Purchasers|manual
+RjnWuK|Post Purchase Clear Mini (for past profiles only)|live
+RpquUx|Yotpo L&R - Referral Share Reminder|draft
+RrgUDm|Welcome Series - 2021|manual
+RtiF53|Superfiliate Enrolled|live
+Rx8WNA|10M: Engagement of 180 day profiles (tag)|live
+RxBsRu|10M: Become Unengaged (Tag)|live
+RzEtZv|10M: Welcome (EU-EN) - (UK)|live
+S6XtwQ|2023Q4 Survey Responses - Non-Purchasers (skipped in flow)|manual
+S9NvFH|Retention - Cart Abandonment|live
+SCMw2Z|Post-Purchase 2023|draft
+SEzrHA|Welcome Series - Manychat|live
+SMJhZX|Junip - Review Blast|live
+SSkEjk|Sunset 2.0|manual
+SiKyyc|Flow - Apr 22, 2025, 4:16 AM|draft
+Ska5Hi|2023Q4 Survey - Purchasers|draft
+SkpW43|10M: Cart Abandonment|live
+Sw3bbh|10M: Welcome (EU-NL)|live
+SxgPqN|KS Email Capture Flow|draft
+T2KHhQ|10M: Tag for Lunchbox Hydration Pack Buyers|live
+T2ZZKF|10M: Welcome (SMS)|live
+T9QShE|10M: Tag for Buyers|live
+TBK6bS|Checkout Abandonment 2023|draft
+TEcuBX|TOKI - Joined Program|live
+TF94Wq|Superfiliate Application Received|live
+TKSUSn|Yotpo L&R - Redemption Created / Earned|draft
+TL4FwP|10M: Browse Abandonment (EU-DE)|live
+TMGrRP|10M: Tag for First Purchase|live
+TMmbrb|10M: Post Purchase|live
+TMvtES|Amazon Flow Segmented (clone)|draft
+TPLTZ9|test|draft
+TVJVyZ|Yotpo L&R - Referral Share|draft
+TXb7fX|10M: Checkout Abandonment (EU-EN) - (EU)|live
+TXjvfp|Cart Abandonment 2.0|draft
+TavicS|Review Request Flow|draft
+Te9piu|10M: Post Purchase (EU-NL)|live
+TeHFtF|Flow - May 21, 2025, 4:54 PM|draft
+TeKHLR|test|draft
+TijBSL|Maverick Ongoing Optimizer Webhook|live
+Tj4qY7|test Z|manual
+Tmgtg9|10M: Cart Abandonment (EU- EN) - (UK)|live
+Tmv27e|Flow - Apr 30, 2025, 10:11 PM|draft
+TnRnHN|Win Back 2.0|draft
+TrTzqd|Cart Abandonment 2023|draft
+TrnQR5|10M: Test|draft
+TtJ3U5|refer|draft
+Twq9p8|Flow - Jun 27, 2025, 4:21 PM|draft
+Ty2jC3|10M: Cart Abandonment (EU-EN) - (EU)|live
+TzPrPv|Checkout Abandonment 2023 TEST|draft
+U2P6Rj|Referral 1 v1 - TEST|draft
+UBVXRg|Back In Stock Flow - Standard|manual
+UEi3gV|10M: Early Access (SMS List)|draft
+UYC6Na|Post Purchase 2021 - Updated|manual
+UZR2ZB|Flow - Sep 8, 2025, 2:23 PM|draft
+UaWrPj|10M: BFCM Early Access 2025|draft
+UijgWn|10M: Checkout Abandonment|live
+Ujbgs3|Checkout Abandonment 2.0|draft
+Unp7Tt|Abandoned Cart Series - 2021|draft
+UqMpcn|Product Review / Cross Sell|manual
+UwnJ4H|Yotpo L&R - Points Reminder (Fixed Redemptions Only)|draft
+V8aa6q|Global Segment For Maverick Optimizer|draft
+VBDiz3|Yotpo L&R - Tier Earned|draft
+VDxJmq|10M: Post Purchase (EU-EN) - (EU)|live
+VEPurC|Customer Winback|manual
+VMgwTy|Retention - Checkout Abandonment|live
+VU4pgP|10M: Post Purchase (INSxLBX) - Remedial|draft
+VV2Azp|10M: Checkout Abandonment (EU-NL)|live
+Vgqeqm|Amazon Flow|draft
+ViAMZ8|10M: Browse Abandonment (EU-NL)|live
+Vk7Xq6|Flow - Apr 26, 2025, 12:16 AM|draft
+VxAZGs|10M: Engagement (tag)|live
+VxTiYW|10M: Checkout Abandonment (EU-DE)|live
+W2H5Bm|JustUno Signup Confirmation|live
+W3fCLR|[DEPRECATED] 10M: Cart Abandonment|draft
+WEGuzD|10M: Welcome (EU-DE)|live
+WHJfQw|10M: Browse Abandonment|live
+WJ6NBs|10M: INS X LBX Pre-Order Post Purchase (First Orders)|draft
+WLKWbn|Amazon SMS 1 (clone)|draft
+WNW47S|Superfiliate Conversion Flow|live
+WQ7wyt|Welcome Series 2023|draft
+WR4pWR|Amazon SMS - Ordered|live
+WUQRPy|10M: Post Purchase (EU-EN) - (UK)|live
+WUpsqv|10M: Cyber Weekend 2022|draft
+WXJCbB|SMS Amazon|draft
+WXXqjN|Yotpo L&R - Redemption Reminder|draft
+WiDru3|10M: Checkout Abandonment (EU-EN) - (UK)|live
+Wqtvjy|[TEST] 10M: Post Purchase (Ordered)|manual
+WuDwWV|Welcome Series - Standard|manual
+Wua8sn|Amazon SMS - Phone Satchel Message|live
+Wze3BJ|Test flow 11-17|draft
+X2YRJr|Flow - Apr 15, 2025, 3:50 AM|draft
+X2cRs8|10M: Browse Abandonment (EU-EN) - (UK)|live
+X6PiVJ|Welcome Series 2.0 - Just Uno|draft
+XCtv67|Welcome Series 2.0 (Master List)|draft
+XJ4yNf|10M: Post Purchase (INSxLBX)|live
+XJiKA2|Test AC new|manual
+XKxdyS|Yotpo L&R - Referral Completed|draft
+XNxNKf|10M: Tag for Clear Pack Buyer|live
+XNxQzg|Abandoned Cart - Legacy 2|draft
+XPp5j2|Welcome Series 2023 - Retention|draft
+XYPuBd|Yotpo L&R - Customer Birthday|draft
+XbVkJb|Post Purchase Series - 2021|draft
+XdWbyn|Amazon SMS - Mini Pack|live
+Xh5fMs|TOKI - Reward Tier Earned|live
+Xk7G3U|Amazon SMS 2|live
+Xp3UGP|Amazon Flow Segmented|draft
+XshyZ4|10M: INS X LBX Pre-Order Post Purchase|draft
+XzKtcc|Amazon SMS 1|draft
+Y4C2ux|AC-TEST|manual
+Y8nY5b|Maverick Ongoing Optimizer Webhook Placed Order|live
+YazqQE|10M: Browse Abandonment (EU-EN) - (EU)|live
+YbFtky|Flow - Apr 17, 2025, 10:58 PM|draft
+YgEFEX|Browse Abandonment 2023|draft
+YgvjER|Browse Abandonment 2.0|draft
+YhvguH|10M: Cart Abandonment (EU-NL)|live
+YmnHF6|Retention - Browse Abandonment|live
+YuP9wi|Test|draft
+YyYYFC|10M: Welcome 2023|live
+YyaFkB|Superfiliate Application Denied|live
