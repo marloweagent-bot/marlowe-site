@@ -487,7 +487,8 @@
                 <h2>Competitive Landscape <span class="badge">7 Major Players</span></h2>
                 
                 <div class="chart-container">
-                    <h3 style="margin-bottom: 20px; text-align: center;">Market Positioning by Price Tier</h3>
+                    <h3 style="margin-bottom: 20px; text-align: center;">Market Share by Annual Volume Consumed</h3>
+                    <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Estimated global industrial hearing protection consumption by product type</p>
                     <div class="chart-wrapper">
                         <canvas id="tierChart"></canvas>
                     </div>
@@ -938,14 +939,26 @@
             gray: '#888'
         };
         
-        // Tier Chart
+        // Volume Chart - Market share by annual consumption
         new Chart(document.getElementById('tierChart'), {
             type: 'doughnut',
             data: {
-                labels: ['Premium (3M, MSA, uvex)', 'Mid-Range (Honeywell, Moldex)', 'Budget (Radians, Delta Plus)'],
+                labels: [
+                    'Disposable Foam Earplugs (3M, Moldex, Honeywell)',
+                    'Reusable Earplugs (Moldex, uvex, 3M)',
+                    'Passive Earmuffs (3M, MSA, Honeywell)',
+                    'Electronic/Communication (Sensear, 3M PELTOR)',
+                    'Banded/Semi-Insert (All)'
+                ],
                 datasets: [{
-                    data: [3, 2, 2],
-                    backgroundColor: [chartColors.premium, chartColors.mid, chartColors.budget],
+                    data: [65, 15, 12, 5, 3],
+                    backgroundColor: [
+                        '#29EF78',
+                        '#1DB954',
+                        '#4A90A4',
+                        '#9B59B6',
+                        '#7f8c8d'
+                    ],
                     borderWidth: 0
                 }]
             },
@@ -954,7 +967,18 @@
                 plugins: {
                     legend: {
                         position: 'bottom',
-                        labels: { color: '#e0e0e0', padding: 20 }
+                        labels: { 
+                            color: '#e0e0e0', 
+                            padding: 15,
+                            font: { size: 11 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.parsed + '% of volume';
+                            }
+                        }
                     }
                 }
             }
