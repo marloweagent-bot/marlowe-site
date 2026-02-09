@@ -69,6 +69,21 @@
     .opp-table { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 2rem; }
     .opp-header { background: linear-gradient(90deg, var(--yellow), #f59e0b); padding: 1rem 1.5rem; }
     .opp-header h3 { font-size: 1rem; font-weight: 600; color: #000; }
+    .wins-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 2rem; }
+    .wins-header { padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .wins-header.high { background: linear-gradient(90deg, var(--green), #16a34a); }
+    .wins-header.medium { background: linear-gradient(90deg, var(--blue), #2563eb); }
+    .wins-header.low { background: linear-gradient(90deg, #6b7280, #4b5563); }
+    .wins-header h3 { font-size: 0.95rem; font-weight: 600; }
+    .wins-header .projection { font-size: 0.8rem; opacity: 0.9; }
+    .win-item { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .win-item:last-child { border-bottom: none; }
+    .win-item h4 { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; }
+    .win-item h4 .tag { font-size: 0.6rem; padding: 0.1rem 0.35rem; border-radius: 3px; background: var(--accent); font-weight: 500; }
+    .win-item p { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .win-item .metrics { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.75rem; }
+    .win-item .metrics span { color: var(--muted); }
+    .win-item .metrics strong { color: var(--text); }
     @media (max-width: 768px) {
       .container { padding: 1rem; }
       .charts-grid { grid-template-columns: 1fr; }
@@ -182,6 +197,118 @@
           </thead>
           <tbody id="opportunities-tbody"></tbody>
         </table>
+      </div>
+    </div>
+
+    <!-- Strategic Wins by Impact -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">🏆 Strategic Wins by Impact Level</h2>
+      </div>
+      
+      <!-- HIGH IMPACT -->
+      <div class="wins-section">
+        <div class="wins-header high">
+          <h3>🔥 High Impact Wins</h3>
+          <span class="projection">Projected: +$80K-120K if click rates improve 50%</span>
+        </div>
+        <div class="win-item">
+          <h4><span class="tag">WELCOME</span> 10M: Welcome 2023 - CTA Optimization</h4>
+          <p>Your #1 revenue driver at $513K. Email #1 has 17.2% click but emails #2-5 drop to 1-4%. Redesign follow-up emails with stronger CTAs, urgency, and product focus.</p>
+          <div class="metrics">
+            <span>Current Revenue: <strong>$513,349</strong></span>
+            <span>Click Rate: <strong>9.76%</strong></span>
+            <span>If +50% clicks: <strong>+$77K</strong></span>
+          </div>
+        </div>
+        <div class="win-item">
+          <h4><span class="tag">CHECKOUT</span> 10M: Checkout Abandonment - Urgency Sequence</h4>
+          <p>Strong performer at $114K with 11.85% click. Add countdown timers, "cart expiring" messaging, and show exact abandoned items with images. Test SMS follow-up 2h after email.</p>
+          <div class="metrics">
+            <span>Current Revenue: <strong>$114,088</strong></span>
+            <span>YoY Growth: <strong>+316%</strong></span>
+            <span>If +50% clicks: <strong>+$17K</strong></span>
+          </div>
+        </div>
+        <div class="win-item">
+          <h4><span class="tag">BROWSE</span> 10M: Browse Abandonment - Content Overhaul</h4>
+          <p>91.8% open rate but only 3.62% click = major content disconnect. People open but don't act. Redesign with above-fold product imagery, social proof, and single clear CTA.</p>
+          <div class="metrics">
+            <span>Current Revenue: <strong>$44,287</strong></span>
+            <span>Open vs Click Gap: <strong>88%</strong></span>
+            <span>If +100% clicks: <strong>+$44K</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEDIUM IMPACT -->
+      <div class="wins-section">
+        <div class="wins-header medium">
+          <h3>📈 Medium Impact Wins</h3>
+          <span class="projection">Projected: +$25K-50K with optimization</span>
+        </div>
+        <div class="win-item">
+          <h4><span class="tag">POST-PURCHASE</span> 10M: Post Purchase - Cross-sell Opportunity</h4>
+          <p>$24K from post-purchase but low conversion density. Add product recommendations based on purchase (bought pack → recommend bladder, accessories). Test timing: day 3, 7, 14.</p>
+          <div class="metrics">
+            <span>Current Revenue: <strong>$24,340</strong></span>
+            <span>YoY Growth: <strong>+125%</strong></span>
+            <span>If +50% conv: <strong>+$12K</strong></span>
+          </div>
+        </div>
+        <div class="win-item">
+          <h4><span class="tag">CART</span> 10M: Cart Abandonment - Multi-touch Expansion</h4>
+          <p>$48K revenue, 11% click. Currently limited touchpoints. Expand to 3-email sequence + SMS. Test incentive ladder: email 1 (reminder), email 2 (social proof), email 3 (discount).</p>
+          <div class="metrics">
+            <span>Current Revenue: <strong>$47,975</strong></span>
+            <span>YoY Growth: <strong>+143%</strong></span>
+            <span>If +30% conv: <strong>+$14K</strong></span>
+          </div>
+        </div>
+        <div class="win-item">
+          <h4><span class="tag">LOYALTY</span> TOKI Program - Reverse Decline</h4>
+          <p>Only category declining (-10% YoY). Audit TOKI flows for engagement drop-off. Test: better reward visibility, points expiration reminders, tier upgrade incentives.</p>
+          <div class="metrics">
+            <span>Current Revenue: <strong>$40,157</strong></span>
+            <span>YoY Change: <strong class="highlight-red">-10%</strong></span>
+            <span>If recover to 2024: <strong>+$4.5K</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOW IMPACT / QUICK WINS -->
+      <div class="wins-section">
+        <div class="wins-header low">
+          <h3>⚡ Quick Wins (Low Effort)</h3>
+          <span class="projection">Projected: +$5K-15K with minimal effort</span>
+        </div>
+        <div class="win-item">
+          <h4><span class="tag">REVIEW</span> Junip Review Request - Add Upsell</h4>
+          <p>High opens (85%) but only $380 revenue. Add post-review thank you with discount code for next purchase. "Thanks for the review! Here's 10% off."</p>
+          <div class="metrics">
+            <span>Current Revenue: <strong>$2,993</strong></span>
+            <span>Recipients: <strong>19.5K</strong></span>
+            <span>If 1% convert: <strong>+$10K</strong></span>
+          </div>
+        </div>
+        <div class="win-item">
+          <h4><span class="tag">SMS</span> SMS Flow Expansion</h4>
+          <p>SMS clicks 3.1% vs email 0.79% (4x higher). Add SMS touchpoints to high-value flows: welcome day 1, cart abandonment +2h, checkout abandonment +4h.</p>
+          <div class="metrics">
+            <span>SMS Click Rate: <strong>3.1%</strong></span>
+            <span>Email Click Rate: <strong>0.79%</strong></span>
+            <span>Potential lift: <strong>+$5-8K</strong></span>
+          </div>
+        </div>
+        <div class="win-item">
+          <h4><span class="tag">CAMPAIGN</span> Subject Line A/B Testing Protocol</h4>
+          <p>Top campaigns hit 5% click while average is 0.79%. Establish mandatory A/B testing on all campaigns >50K recipients. Test: curiosity, personalization, emoji, length.</p>
+          <div class="metrics">
+            <span>Best Click Rate: <strong>5%+</strong></span>
+            <span>Average Click Rate: <strong>0.79%</strong></span>
+            <span>If avg → 1.5%: <strong>+$15K</strong></span>
+          </div>
+        </div>
       </div>
     </div>
 
